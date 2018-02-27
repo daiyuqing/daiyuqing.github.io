@@ -77,13 +77,9 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/daiyuqing" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/signup?next=%2F" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -118,13 +114,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/daiyuqing" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/signup?next=%2F" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -172,11 +164,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><br></p>
-<h2 id="1-安装NodeJs"><a href="#1-安装NodeJs" class="headerlink" title="1.安装NodeJs"></a>1.安装NodeJs</h2><p>hexo是基于nodeJS环境的静态博客<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">点击下载</a></p>
-<h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><p>在gitbash中运行命令<code>npm install hexo-cli -g</code> </p>
+        <hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名程序员也有一段时间了，一直想把一些知识系统性的整理一下，在这里运用hexo+github的形式做一个静态博客，记录下整理的东西。<br>博客的第一篇就先从如何搭建博客开始吧！<br>这里本人用的是Windows系统，这里就以Windows系统为例进行讲解</p>
+<h2 id="1-安装NodeJs"><a href="#1-安装NodeJs" class="headerlink" title="1.安装NodeJs"></a>1.安装NodeJs</h2><p>hexo是基于nodeJS环境的静态博客，安装nodejs是必须的<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">点击下载</a></p>
+<h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><p>在gitbash中运行命令<code>npm install hexo-cli -g</code><br>安装完成之后输入<code>hexo</code>可验证是否安装成功</p>
 <h2 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3.创建项目"></a>3.创建项目</h2><p>创建一个文件夹blog,进入文件夹,在gitbash中运行命令<code>hexo init</code>，初始化hexo项目<br><code>hexo n</code> “我的博客” == hexo new “我的博客” #新建文章<br><code>hexo g</code>==<code>hexo generate</code>#生成<br><code>hexo s</code>== <code>hexo server</code> #启动服务预览，可以在浏览器中访问<a href="http://localhost:4000" title="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>来预览创建的项目<br><code>hexo d</code>== <code>hexo deploy</code>#部署</p>
 <h2 id="4-服务器"><a href="#4-服务器" class="headerlink" title="4.服务器"></a>4.服务器</h2><p><code>hexo server</code> #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br><code>hexo server -s</code> #静态模式<br><code>hexo server -p 5000</code> #更改端口<br><code>hexo server -i 192.168.1.1</code> #自定义 IP<br><code>hexo clean</code> #清除缓存 网页正常情况下可以忽略此条命令<br><code>hexo g</code> #生成静态网页<br><code>hexo d</code> #开始部署</p>
+<h2 id="5、关联github"><a href="#5、关联github" class="headerlink" title="5、关联github"></a>5、关联github</h2><ul>
+<li>首先在github网站创建一个github账号</li>
+<li>在github中创建一个仓库，仓库名字输入<code>Github昵称.github.io</code></li>
+<li>创建完成之后在仓库的setting中创建一个GitHub Pages</li>
+<li>在终端输入命令<code>ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</code>,一路Enter过来就好，待秘钥生成完毕，会得到两个文件id_rsa和id_rsa.pub(在C:\Users\Administrator.ssh中可以找到)，用带格式的记事本打开id_rsa.pub，Ctrl + a复制里面的所有内容，然后进入github账户的settings，然后选择SSH and GPS keys，点击右边的按钮New SSh key,将刚才的复制内容粘贴进去保存</li>
+<li>对博客修改相应的配置，我们用到_config.yml文件，在该文件中找到deploy这个参数，将这个参数的内容改为<br><code>deploy:</code><br><code>type: git</code><br><code>repo: git@github.com:Github昵称/Github昵称.github.io.git</code><br><code>branch: master</code></li>
+<li>在本地项目根目录运行<code>npm install hexo-deployer-git --save</code>添加部署到Github的包</li>
+<li>这样当你运行<code>hexo g &amp;&amp; hexo d</code>后本地代码会自动部署到你的github，在<code>https://Github昵称.github.io/Github昵称.github.io/</code>网址下就可以看到博客内容<br><strong>注： “Github昵称”表示你的github用户名 </strong></li>
+</ul>
 
       
 
