@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>git | Hexo</title>
+  <title>Git | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是git？Git是一种分布式版本控制系统 git的一些常用命令git init 初始化一个Git仓库git add &amp;lt;file&amp;gt; 将修改的内容提交到暂存区git commit -m first把暂存区的所有内容提交到当前分支git remote add origin git@github.com:name/learngit.git关联一个远程库git push origin mas">
+  <meta name="description" content="什么是git？Git是一种分布式版本控制系统 git的一些常用命令git init 初始化一个Git仓库配置用户信息git config --global user.name namegit config --global user.email name@example.com 提交git add &amp;lt;file&amp;gt; 将修改的内容提交到暂存区git commit -m first把暂存区的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git">
+<meta property="og:title" content="Git">
 <meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/02/28/git/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="什么是git？Git是一种分布式版本控制系统 git的一些常用命令git init 初始化一个Git仓库git add &amp;lt;file&amp;gt; 将修改的内容提交到暂存区git commit -m first把暂存区的所有内容提交到当前分支git remote add origin git@github.com:name/learngit.git关联一个远程库git push origin mas">
+<meta property="og:description" content="什么是git？Git是一种分布式版本控制系统 git的一些常用命令git init 初始化一个Git仓库配置用户信息git config --global user.name namegit config --global user.email name@example.com 提交git add &amp;lt;file&amp;gt; 将修改的内容提交到暂存区git commit -m first把暂存区的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-28T14:41:12.586Z">
+<meta property="og:updated_time" content="2018-03-01T16:26:43.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git">
-<meta name="twitter:description" content="什么是git？Git是一种分布式版本控制系统 git的一些常用命令git init 初始化一个Git仓库git add &amp;lt;file&amp;gt; 将修改的内容提交到暂存区git commit -m first把暂存区的所有内容提交到当前分支git remote add origin git@github.com:name/learngit.git关联一个远程库git push origin mas">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="什么是git？Git是一种分布式版本控制系统 git的一些常用命令git init 初始化一个Git仓库配置用户信息git config --global user.name namegit config --global user.email name@example.com 提交git add &amp;lt;file&amp;gt; 将修改的内容提交到暂存区git commit -m first把暂存区的">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,21 +165,28 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git
+      Git
     </h1>
   
 
         
         <a href="/2018/02/28/git/" class="archive-article-date">
-  	<time datetime="2018-02-28T14:38:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+  	<time datetime="2018-02-28T15:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是git？"><a href="#什么是git？" class="headerlink" title="什么是git？"></a>什么是git？</h2><p>Git是一种分布式版本控制系统</p>
-<h2 id="git的一些常用命令"><a href="#git的一些常用命令" class="headerlink" title="git的一些常用命令"></a>git的一些常用命令</h2><p><code>git init</code> 初始化一个Git仓库<br><code>git add &lt;file&gt;</code> 将修改的内容提交到暂存区<br><code>git commit -m first</code>把暂存区的所有内容提交到当前分支<br><code>git remote add origin git@github.com:name/learngit.git</code>关联一个远程库<br><code>git push origin master</code>推送master分支的所有内容<br><code>git checkout bug</code>切换到bug分支</p>
+        <hr>
+<h2 id="什么是git？"><a href="#什么是git？" class="headerlink" title="什么是git？"></a>什么是git？</h2><p>Git是一种分布式版本控制系统</p>
+<h2 id="git的一些常用命令"><a href="#git的一些常用命令" class="headerlink" title="git的一些常用命令"></a>git的一些常用命令</h2><p><code>git init</code> 初始化一个Git仓库<br>配置用户信息<br><code>git config --global user.name name</code><br><code>git config --global user.email name@example.com</code></p>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p><code>git add &lt;file&gt;</code> 将修改的内容提交到暂存区<br><code>git commit -m first</code>把暂存区的所有内容提交到当前分支<br><code>git diff</code>比较工作区与暂存区<br><code>git status</code>查看本地工作区、暂存区中文件的修改状态<br><code>git log</code>查看提交记录</p>
+<h3 id="查看修改"><a href="#查看修改" class="headerlink" title="查看修改"></a>查看修改</h3><p><code>git diff &lt;filename&gt;</code> 工作目录 vs 暂存区<br><code>git diff --cached &lt;filename&gt;</code> 暂存区 vs Git仓库<br><code>git diff &lt;commit&gt; &lt;filename&gt;</code> 工作目录 vs Git仓库<br><code>git diff &lt;commit&gt; &lt;commit&gt;</code> Git仓库 vs Git仓库</p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p><code>git branch bug</code>创建bug分支<br><code>git checkout bug</code>切换到bug分支<br><code>git checkout -b bug</code>创建bug分支并切换到bug分支<br><code>git branch -d bug</code>删除分支</p>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>若一个文件没有add，<code>git checkout -- &lt;file&gt;</code>撤销文件的修改<br>若一个文件已经add，则先<code>git reset HEAD &lt;file&gt;</code>将暂存区的修改撤回到工作区，再<code>git checkout -- &lt;file&gt;</code></p>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p><code>git reset --hard HEAD^</code>回退到上一个版本<br><code>git reset --hard HEAD~100</code>回退到100版本<br><code>git log</code>查看提交记录<br><code>git reset --hard commit_id</code>回退到某一特定版本</p>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p><code>git clone &lt;URL&gt;</code>从远程库克隆<br><code>git remote add origin &lt;URL&gt;</code>添加一个远程库<br><code>git remote set-url origin &lt;URL&gt;</code> 更换远程仓库地址。<br><code>git remote -v</code>查看关联的远程库<br><code>git push origin master</code>推送master分支的所有内容到远程库<br><code>git remote rm origin</code>删除远程库</p>
 
       
 
@@ -283,15 +290,6 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/28/编码/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          编码
-        
-      </div>
-    </a>
-  
   
     <a href="/2018/02/28/跨域/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">跨域</div>
@@ -322,7 +320,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="git" data-title="git" data-url="https://daiyuqing.github.io/daiyuqing.github.io/2018/02/28/git/"></div>
+	<div class="ds-thread" data-thread-key="git" data-title="Git" data-url="https://daiyuqing.github.io/daiyuqing.github.io/2018/02/28/git/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
