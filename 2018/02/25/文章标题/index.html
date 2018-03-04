@@ -332,19 +332,25 @@
   
 
   
-  <div id="SOHUCS" sid="文章标题" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytuRMvHG",
-        conf: "a3ffb95fa8394c801118fde19647b912"
-    });
-</script>
-</script>
-  
 
   
 
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://daiyuqing.github.io/daiyuqing.github.io/2018/02/25/文章标题/",
+  owner: 'daiyuqing',
+  repo: 'daiyuqing.github.io',
+  oauth: {
+    client_id: '97db30fe3469fddc887b',
+    client_secret: 'c488d3f6b2577bdd134a8667a05050e1819d6b40',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -436,6 +442,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

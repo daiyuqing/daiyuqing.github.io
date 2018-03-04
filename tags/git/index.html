@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>Hexo</title>
+  <title>Tag: git | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/index.html">
+<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/tags/git/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -156,43 +156,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/28/git/" class="archive-article-date">
+  	<time datetime="2018-02-28T15:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/git/">Git</a>
+      <a class="archive-article-title" href="/2018/02/28/git/">Git</a>
     </h1>
   
 
-        
-        <a href="/2018/02/28/git/" class="archive-article-date">
-  	<time datetime="2018-02-28T15:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="什么是git？"><a href="#什么是git？" class="headerlink" title="什么是git？"></a>什么是git？</h2><p>Git是一种分布式版本控制系统</p>
-<h2 id="git的一些常用命令"><a href="#git的一些常用命令" class="headerlink" title="git的一些常用命令"></a>git的一些常用命令</h2><p><code>git init</code> 初始化一个Git仓库<br>配置用户信息<br><code>git config --global user.name name</code><br><code>git config --global user.email name@example.com</code></p>
-<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p><code>git add &lt;file&gt;</code> 将修改的内容提交到暂存区<br><code>git commit -m first</code>把暂存区的所有内容提交到当前分支<br><code>git diff</code>比较工作区与暂存区<br><code>git status</code>查看本地工作区、暂存区中文件的修改状态<br><code>git log</code>查看提交记录</p>
-<h3 id="查看修改"><a href="#查看修改" class="headerlink" title="查看修改"></a>查看修改</h3><p><code>git diff &lt;filename&gt;</code> 工作目录 vs 暂存区<br><code>git diff --cached &lt;filename&gt;</code> 暂存区 vs Git仓库<br><code>git diff &lt;commit&gt; &lt;filename&gt;</code> 工作目录 vs Git仓库<br><code>git diff &lt;commit&gt; &lt;commit&gt;</code> Git仓库 vs Git仓库</p>
-<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p><code>git branch bug</code>创建bug分支<br><code>git checkout bug</code>切换到bug分支<br><code>git checkout -b bug</code>创建bug分支并切换到bug分支<br><code>git branch -d bug</code>删除分支</p>
-<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>若一个文件没有add，<code>git checkout -- &lt;file&gt;</code>撤销文件的修改<br>若一个文件已经add，则先<code>git reset HEAD &lt;file&gt;</code>将暂存区的修改撤回到工作区，再<code>git checkout -- &lt;file&gt;</code></p>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p><code>git reset --hard HEAD^</code>回退到上一个版本<br><code>git reset --hard HEAD~100</code>回退到100版本<br><code>git log</code>查看提交记录<br><code>git reset --hard commit_id</code>回退到某一特定版本</p>
-<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p><code>git clone &lt;URL&gt;</code>从远程库克隆<br><code>git remote add origin &lt;URL&gt;</code>添加一个远程库<br><code>git remote set-url origin &lt;URL&gt;</code> 更换远程仓库地址。<br><code>git remote -v</code>查看关联的远程库<br><code>git push origin master</code>推送master分支的所有内容到远程库<br><code>git remote rm origin</code>删除远程库</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,257 +195,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/git/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/跨域/">跨域</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/跨域/" class="archive-article-date">
-  	<time datetime="2018-02-28T15:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>做前端经常后会碰到跨域的问题，这里做个总结。<br>由于我这边后端用的主要是php，所以后端主要以php为例。</p>
-<h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。<br>所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example.com/server.php" target="_blank" rel="noopener">http://www.example.com/server.php</a> （非跨域）</p>
-<p><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example2.com/server.php" target="_blank" rel="noopener">http://www.example2.com/server.php</a> （主域名不同:example/example2，跨域）</p>
-<p><a href="http://abc.example.com/index.html" target="_blank" rel="noopener">http://abc.example.com/index.html</a> 调用 <a href="http://def.example.com/server.php" target="_blank" rel="noopener">http://def.example.com/server.php</a> （子域名不同:abc/def，跨域）</p>
-<p><a href="http://www.example.com:8080/index.html" target="_blank" rel="noopener">http://www.example.com:8080/index.html</a> 调用 <a href="http://www.example.com:8081/server.php" target="_blank" rel="noopener">http://www.example.com:8081/server.php</a> （端口不同:8080/8081，跨域）</p>
-<p><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="https://www.example.com/server.php" target="_blank" rel="noopener">https://www.example.com/server.php</a> （协议不同:http/https，跨域）</p>
-<p><strong>请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。</strong></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>最常见的主要有以下三种方式</p>
-<h3 id="1、jsonp"><a href="#1、jsonp" class="headerlink" title="1、jsonp:"></a>1、jsonp:</h3><p>原理：将接口放在script标签中<br>前端代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		function cb(res)&#123;</span></span><br><span class="line"><span class="string">			console.log(res);</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" src="</span>http:<span class="comment">//www.example.com/server.php?callback=cb"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">	</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>后端代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$callback=$_REQUEST[callback];</span><br><span class="line">$result=<span class="number">1234566</span>;</span><br><span class="line"><span class="keyword">return</span> $callback+<span class="string">'('</span>+$result+<span class="string">')'</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：jsonp只支持get方法，不支持post方法</strong></p>
-<h3 id="2、代理："><a href="#2、代理：" class="headerlink" title="2、代理："></a>2、代理：</h3><p>原理：后端之间访问是不存在跨域的问题<br>比如<code>http://www.example.com/index.html</code>想要调用 <code>http://www.example2.com/server.php</code>的方法，可以写一个<code>http://www.example.com/server.php</code>，在后端调用<code>http://www.example2.com/server.php</code>的方法并拿到返回值返回给<code>index.html</code>，这样就绕过了跨域的问题</p>
-<h3 id="3、服务器端修改header（XHR2方式）"><a href="#3、服务器端修改header（XHR2方式）" class="headerlink" title="3、服务器端修改header（XHR2方式）"></a>3、服务器端修改header（XHR2方式）</h3><p>在服务器头部中加入以下两句即可：<br><code>header(&#39;Access-Control-Allow-Origin:*&#39;);//允许所有来源访问</code><br><code>header(&#39;Access-Control-Allow-Method:POST,GET&#39;);//允许访问的方式</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/跨域/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/编码/">编码</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/编码/" class="archive-article-date">
-  	<time datetime="2018-02-28T14:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是编码？"><a href="#什么是编码？" class="headerlink" title="什么是编码？"></a>什么是编码？</h2><p>编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。<br>解码，是编码的逆过程。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/编码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-文章标题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/文章标题/">hexo + GithubPages  搭建博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/25/文章标题/" class="archive-article-date">
-  	<time datetime="2018-02-25T15:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名程序员也有一段时间了，一直想把一些知识系统性的整理一下，在这里运用hexo+github的形式做一个静态博客，记录下整理的东西。<br>博客的第一篇就先从如何搭建博客开始吧！<br>这里本人用的是Windows系统，这里就以Windows系统为例进行讲解</p>
-<h2 id="1-安装NodeJs"><a href="#1-安装NodeJs" class="headerlink" title="1.安装NodeJs"></a>1.安装NodeJs</h2><p>hexo是基于nodeJS环境的静态博客，安装nodejs是必须的<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">点击下载</a></p>
-<h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><p>在gitbash中运行命令<code>npm install hexo-cli -g</code><br>安装完成之后输入<code>hexo</code>可验证是否安装成功</p>
-<h2 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3.创建项目"></a>3.创建项目</h2><p>创建一个文件夹blog,进入文件夹,在gitbash中运行命令<code>hexo init</code>，初始化hexo项目<br><code>hexo n</code> “我的博客” == hexo new “我的博客” #新建文章<br><code>hexo g</code>==<code>hexo generate</code>#生成<br><code>hexo s</code>== <code>hexo server</code> #启动服务预览，可以在浏览器中访问<a href="http://localhost:4000" title="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>来预览创建的项目<br><code>hexo d</code>== <code>hexo deploy</code>#部署</p>
-<h2 id="4-服务器"><a href="#4-服务器" class="headerlink" title="4.服务器"></a>4.服务器</h2><p><code>hexo server</code> #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br><code>hexo server -s</code> #静态模式<br><code>hexo server -p 5000</code> #更改端口<br><code>hexo server -i 192.168.1.1</code> #自定义 IP<br><code>hexo clean</code> #清除缓存 网页正常情况下可以忽略此条命令<br><code>hexo g</code> #生成静态网页<br><code>hexo d</code> #开始部署</p>
-<h2 id="5、关联github"><a href="#5、关联github" class="headerlink" title="5、关联github"></a>5、关联github</h2><ul>
-<li>首先在github网站创建一个github账号</li>
-<li>在github中创建一个仓库，仓库名字输入<code>Github昵称.github.io</code></li>
-<li>创建完成之后在仓库的setting中创建一个GitHub Pages</li>
-<li>在终端输入命令<code>ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</code>,一路Enter过来就好，待秘钥生成完毕，会得到两个文件id_rsa和id_rsa.pub(在C:\Users\Administrator.ssh中可以找到)，用带格式的记事本打开id_rsa.pub，Ctrl + a复制里面的所有内容，然后进入github账户的settings，然后选择SSH and GPS keys，点击右边的按钮New SSh key,将刚才的复制内容粘贴进去保存</li>
-<li>对博客修改相应的配置，我们用到_config.yml文件，在该文件中找到deploy这个参数，将这个参数的内容改为<br><code>deploy:</code><br><code>type: git</code><br><code>repo: git@github.com:Github昵称/Github昵称.github.io.git</code><br><code>branch: master</code></li>
-<li>在本地项目根目录运行<code>npm install hexo-deployer-git --save</code>添加部署到Github的包</li>
-<li>这样当你运行<code>hexo g &amp;&amp; hexo d</code>后本地代码会自动部署到你的github，在<code>https://Github昵称.github.io/Github昵称.github.io/</code>网址下就可以看到博客内容<br><strong>注： “Github昵称”表示你的github用户名 </strong></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/25/文章标题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -476,10 +229,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
