@@ -156,6 +156,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-http" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/15/http/">HTTP协议</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/15/http/" class="archive-article-date">
+  	<time datetime="2018-04-15T11:00:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>HTTP是Hyper Text Transfer Protocol（超文本传输协议）的缩写。<br>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等。<br><strong>HTTP是一个应用层协议，由请求和响应构成，是一个标准的客户端服务器模型。HTTP是一个无状态的协议。</strong></p>
+<h2 id="在TCP-IP协议栈中的位置"><a href="#在TCP-IP协议栈中的位置" class="headerlink" title="在TCP/IP协议栈中的位置"></a>在TCP/IP协议栈中的位置</h2><p>HTTP协议通常承载于TCP协议之上，有时也承载于TLS或SSL协议层之上，这个时候，就成了我们常说的HTTPS。<br><img src="http://www.blogjava.net/images/blogjava_net/amigoxie/40799/o_http%e5%8d%8f%e8%ae%ae%e5%ad%a6%e4%b9%a0-11.jpg" alt=""><br>默认HTTP的端口号为80，HTTPS的端口号为443。</p>
+<h2 id="HTTP的请求响应模型"><a href="#HTTP的请求响应模型" class="headerlink" title="HTTP的请求响应模型"></a>HTTP的请求响应模型</h2><p>HTTP协议永远都是客户端发起请求，服务器回送响应。<br><img src="http://www.blogjava.net/images/blogjava_net/amigoxie/40799/o_http%e5%8d%8f%e8%ae%ae%e5%ad%a6%e4%b9%a0-12.jpg" alt=""><br>这样就限制了使用HTTP协议，无法实现在客户端没有发起请求的时候，服务器将消息推送给客户端。<br><strong>HTTP协议是一个无状态的协议，同一个客户端的这次请求和上次请求是没有对应关系。</strong></p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p>一次HTTP操作称为一个事务，其工作过程可分为四步：</p>
+<ol>
+<li>首先客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作开始。</li>
+<li>建立连接后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，后边是MIME信息包括请求修饰符、客户机信息和可能的内容。</li>
+<li>服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码，后边是MIME信息包括服务器信息、实体信息和可能的内容。</li>
+<li>客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接。<br>如果在以上过程中的某一步出现错误，那么产生错误的信息将返回到客户端，有显示屏输出。对于用户来说，这些过程是由HTTP自己完成的，用户只要用鼠标点击，等待信息显示就可以了。<h2 id="请求消息格式"><a href="#请求消息格式" class="headerlink" title="请求消息格式"></a>请求消息格式</h2><code>请求行</code><br><code>通用信息头|请求头|实体头</code><br><code>实体内容</code><br>其中“请求行”为：请求行 = 方法 [空格] 请求URI [空格] 版本号 [回车换行]<h2 id="响应消息格式"><a href="#响应消息格式" class="headerlink" title="响应消息格式"></a>响应消息格式</h2><code>状态行</code><br><code>通用信息头|响应头|实体头</code><br><code>实体内容</code><br>其中：状态行 = 版本号 [空格] 状态码 [空格] 原因 [回车换行]<h2 id="http的状态响应码"><a href="#http的状态响应码" class="headerlink" title="http的状态响应码"></a>http的状态响应码</h2><strong>1开头 ：请求收到，继续处理</strong><br>100——客户必须继续发出请求<br>101——客户要求服务器根据请求转换HTTP协议版本<br><strong>2开头 ：操作成功收到，分析、接受</strong><br>200——交易成功<br>201——提示知道新文件的URL<br>202——接受和处理、但处理未完成<br>203——返回信息不确定或不完整<br>204——请求收到，但返回信息为空<br>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件<br>206——服务器已经完成了部分用户的GET请求<br><strong>3开头：完成此请求必须进一步处理</strong><br>300——请求的资源可在多处得到<br>301——删除请求数据<br>302——在其他地址发现了请求数据<br>303——建议客户访问其他URL或访问方式<br>304——客户端已经执行了GET，但文件未变化<br>305——请求的资源必须从服务器指定的地址得到<br>306——前一版本HTTP中使用的代码，现行版本中不再使用<br>307——申明请求的资源临时性删除<br><strong>4开头：请求包含一个错误语法或不能完成</strong><br>400——错误请求，如语法错误<br>401——未授权<br>HTTP 401.1 - 未授权：登录失败<br>HTTP 401.2 - 未授权：服务器配置问题导致登录失败<br>HTTP 401.3 - ACL 禁止访问资源<br>HTTP 401.4 - 未授权：授权被筛选器拒绝<br>HTTP 401.5 - 未授权：ISAPI 或 CGI 授权失败<br>402——保留有效ChargeTo头响应<br>403——禁止访问<br>HTTP 403.1 禁止访问：禁止可执行访问<br>HTTP 403.2 - 禁止访问：禁止读访问<br>HTTP 403.3 - 禁止访问：禁止写访问<br>HTTP 403.4 - 禁止访问：要求 SSL<br>HTTP 403.5 - 禁止访问：要求 SSL 128<br>HTTP 403.6 - 禁止访问：IP 地址被拒绝<br>HTTP 403.7 - 禁止访问：要求客户证书<br>HTTP 403.8 - 禁止访问：禁止站点访问<br>HTTP 403.9 - 禁止访问：连接的用户过多<br>HTTP 403.10 - 禁止访问：配置无效<br>HTTP 403.11 - 禁止访问：密码更改<br>HTTP 403.12 - 禁止访问：映射器拒绝访问<br>HTTP 403.13 - 禁止访问：客户证书已被吊销<br>HTTP 403.15 - 禁止访问：客户访问许可过多<br>HTTP 403.16 - 禁止访问：客户证书不可信或者无效<br>HTTP 403.17 - 禁止访问：客户证书已经到期或者尚未生效<br>404——没有发现文件、查询或URl<br>405——用户在Request-Line字段定义的方法不允许<br>406——根据用户发送的Accept拖，请求资源不可访问<br>407——类似401，用户必须首先在代理服务器上得到授权<br>408——客户端没有在用户指定的饿时间内完成请求<br>409——对当前资源状态，请求不能完成<br>410——服务器上不再有此资源且无进一步的参考地址<br>411——服务器拒绝用户定义的Content-Length属性请求<br>412——一个或多个请求头字段在当前请求中错误<br>413——请求的资源大于服务器允许的大小<br>414——请求的资源URL长于服务器允许的长度<br>415——请求资源不支持请求项目格式<br>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段<br>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长。<br><strong>5开头：服务器执行一个完全有效请求失败</strong><br>HTTP 500 - 内部服务器错误<br>HTTP 500.100 - 内部服务器错误 - ASP 错误<br>HTTP 500-11 服务器关闭<br>HTTP 500-12 应用程序重新启动<br>HTTP 500-13 - 服务器太忙<br>HTTP 500-14 - 应用程序无效<br>HTTP 500-15 - 不允许请求 global.asa<br>Error 501 - 未实现<br>HTTP 502 - 网关错误<h2 id="头域"><a href="#头域" class="headerlink" title="头域"></a>头域</h2>HTTP的头域包括通用头，请求头，响应头和实体头四个部分。<br>每个头域由一个域名，冒号（:）和域值三部分组成。域名是大小写无关的，域值前可以添加任何数量的空格符，头域可以被扩展为多行，在每行开始处，使用至少一个空格或制表符。<h3 id="通用头域"><a href="#通用头域" class="headerlink" title="通用头域"></a>通用头域</h3>通用头域包含请求和响应消息都支持的头域，通用头域包含Cache-Control、Connection、Date、Pragma、Transfer-Encoding、Upgrade、Via。对通用头域的扩展要求通讯双方都支持此扩展，如果存在不支持的通用头域，一般将会作为实体头域处理。下面简单介绍几个在常见的通用头域。<br><strong>Cache-Control头域</strong><br>Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached，响应消息中的指令包括public、 private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、 max-age。各个消息中的指令含义如下：<br>Public指示响应可被任何缓存区缓存。<br>Private指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效。<br>no-cache指示请求或响应消息不能缓存<br>no-store用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。<br>max-age指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应。<br>min-fresh指示客户机可以接收响应时间小于当前时间加上指定时间的响应。<br>max-stale指示客户机可以接收超出超时期间的响应消息。如果指定max-stale消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。<br><strong>Date头域</strong><br>Date头域表示消息发送的时间，时间的描述格式由rfc822定义。例如，Date:Mon,31Dec200104:25:57GMT。Date描述的时间表示世界标准时，换算成本地时间，需要知道用户所在的时区。<br><strong>Pragma头域</strong><br>Pragma头域用来包含实现特定的指令，最常用的是Pragma:no-cache。在HTTP/1.1协议中，它的含义和Cache-Control:no-cache相同。<h3 id="请求消息"><a href="#请求消息" class="headerlink" title="请求消息"></a>请求消息</h3>请求消息的第一行为下面的格式：<br>Method　SP　Request-URI　SP　HTTP-Version　CRLF　<br>Method表示对于Request-URI完成的方法，这个字段是大小写敏感的，包括OPTIONS、GET、HEAD、POST、PUT、DELETE、TRACE。方法GET和HEAD应该被所有的通用WEB服务器支持，其他所有方法的实现是可选的。GET方法取回由Request-URI标识的信息。HEAD方法也是取回由Request-URI标识的信息，只是可以在响应时，不返回消息体。POST方法可以请求服务器接收包含在请求中的实体信息，可以用于提交表单，向新闻组、BBS、邮件群组和数据库发送消息。<br>SP表示空格。<br>Request-URI遵循URI格式，在此字段为星号（<em>）时，说明请求并不用于某个特定的资源地址，而是用于服务器本身。<br>HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1。<br>CRLF表示换行回车符。<br>请求头域允许客户端向服务器传递关于请求或者关于客户机的附加信息。请求头域可能包含下列字段Accept、Accept-Charset、Accept- Encoding、Accept-Language、Authorization、From、Host、If-Modified-Since、If- Match、If-None-Match、If-Range、If-Range、If-Unmodified-Since、Max-Forwards、 Proxy-Authorization、Range、Referer、User-Agent。对请求头域的扩展要求通讯双方都支持，如果存在不支持的请求头域，一般将会作为实体头域处理。<br>典型的请求消息：<br>GET<a href="http://class/download.microtool.de:80/somedata.exe" target="_blank" rel="noopener">http://class/download.microtool.de:80/somedata.exe</a><br>Host:download.microtool.de<br>Accept:</em>/*<br>Pragma:no-cache<br>Cache-Control:no-cache<br>Referer:<a href="http://class/download.microtool.de/" target="_blank" rel="noopener">http://class/download.microtool.de/</a><br>User-Agent:Mozilla/4.04<a href="Win95;I;Nav">en</a><br>Range:bytes=554554-<br>上例第一行表示HTTP客户端（可能是浏览器、下载程序）通过GET方法获得指定URL下的文件。棕色的部分表示请求头域的信息，绿色的部分表示通用头部分。<br><strong>Host头域</strong><br>Host头域指定请求资源的Intenet主机和端口号，必须表示请求url的原始服务器或网关的位置。HTTP/1.1请求必须包含主机头域，否则系统会以400状态码返回。<br><strong>Referer头域</strong><br>Referer头域允许客户端指定请求uri的源资源地址，这可以允许服务器生成回退链表，可用来登陆、优化cache等。他也允许废除的或错误的连接由于维护的目的被追踪。如果请求的uri没有自己的uri地址，Referer不能被发送。如果指定的是部分uri地址，则此地址应该是一个相对地址。<br><strong>Range头域</strong><br>Range头域可以请求实体的一个或者多个子范围。例如，<br>表示头500个字节：bytes=0-499<br>表示第二个500字节：bytes=500-999<br>表示最后500个字节：bytes=-500<br>表示500字节以后的范围：bytes=500-<br>第一个和最后一个字节：bytes=0-0,-1<br>同时指定几个范围：bytes=500-600,601-999<br>但是服务器可以忽略此请求头，如果无条件GET包含Range请求头，响应会以状态码206（PartialContent）返回而不是以200（OK）。<br><strong>User-Agent头域</strong><br>User-Agent头域的内容包含发出请求的用户信息。</li>
+</ol>
+<h3 id="响应消息"><a href="#响应消息" class="headerlink" title="响应消息"></a>响应消息</h3><p>响应消息的第一行为下面的格式：<br>HTTP-Version　SP　Status-Code　SP　Reason-Phrase　CRLF<br>HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1。<br>Status-Code是一个三个数字的结果代码。<br>Reason-Phrase给Status-Code提供一个简单的文本描述。Status-Code主要用于机器自动识别，Reason-Phrase主要用于帮助用户理解。Status-Code的第一个数字定义响应的类别，后两个数字没有分类的作用。第一个数字可能取5个不同的值：<br>1xx:信息响应类，表示接收到请求并且继续处理<br>2xx:处理成功响应类，表示动作被成功接收、理解和接受<br>3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理<br>4xx:客户端错误，客户请求包含语法错误或者是不能正确执行<br>5xx:服务端错误，服务器不能正确执行一个正确的请求<br>响应头域允许服务器传递不能放在状态行的附加信息，这些域主要描述服务器的信息和Request-URI进一步的信息。响应头域包含Age、 Location、Proxy-Authenticate、Public、Retry-After、Server、Vary、Warning、WWW- Authenticate。对响应头域的扩展要求通讯双方都支持，如果存在不支持的响应头域，一般将会作为实体头域处理。<br>典型的响应消息：<br>HTTP/1.0200OK<br>Date:Mon,31Dec200104:25:57GMT<br>Server:Apache/1.3.14(Unix)<br>Content-type:text/html<br>Last-modified:Tue,17Apr200106:46:28GMT<br>Etag:”a030f020ac7c01:1e9f”<br>Content-length:39725426<br>Content-range:bytes554554-40279979/40279980<br>上例第一行表示HTTP服务端响应一个GET方法。棕色的部分表示响应头域的信息，绿色的部分表示通用头部分，红色的部分表示实体头域的信息。<br><strong>Location响应头</strong><br>Location响应头用于重定向接收者到一个新URI地址。<br><strong>Server响应头</strong><br>Server响应头包含处理请求的原始服务器的软件信息。此域能包含多个产品标识和注释，产品标识一般按照重要性排序。</p>
+<h3 id="实体信息"><a href="#实体信息" class="headerlink" title="实体信息"></a>实体信息</h3><p>请求消息和响应消息都可以包含实体信息，实体信息一般由实体头域和实体组成。实体头域包含关于实体的原信息，实体头包括Allow、Content-Base、Content-Encoding、Content-Language、 Content-Length、Content-Location、Content-MD5、Content-Range、Content-Type、 Etag、Expires、Last-Modified、extension-header。extension-header允许客户端定义新的实体头，但是这些域可能无法未接受方识别。实体可以是一个经过编码的字节流，它的编码方式由Content-Encoding或Content-Type定义，它的长度由Content-Length或Content-Range定义。<br><strong>Content-Type实体头</strong><br>Content-Type实体头用于向接收方指示实体的介质类型，指定HEAD方法送到接收方的实体介质类型，或GET方法发送的请求介质类型<br><strong>Content-Range实体头</strong><br>Content-Range实体头用于指定整个实体中的一部分的插入位置，他也指示了整个实体的长度。在服务器向客户返回一个部分响应，它必须描述响应覆盖的范围和整个实体长度。一般格式：<br>Content-Range:bytes-unit　SP　first-byte-pos - last-byte-pos/entity-legth<br>例如，传送头500个字节次字段的形式：Content-Range:bytes0-499/1234如果一个http消息包含此节（例如，对范围请求的响应或对一系列范围的重叠请求），Content-Range表示传送的范围，Content-Length表示实际传送的字节数。<br><strong>Last-modified实体头</strong><br>Last-modified实体头指定服务器上保存内容的最后修订时间。</p>
+<h3 id="HTTP-头参考"><a href="#HTTP-头参考" class="headerlink" title="HTTP 头参考"></a>HTTP 头参考</h3><p>HTTP 请求和 HTTP 响应都使用头发送有关 HTTP 消息的信息。头由一系列行组成，每行都包含名称，然后依次是冒号、空格、值。字段可按任何顺序排列。某些头字段既能用于请求头也能用于响应头，而另一些头字段只能用于其中之一。<br>许多请求头字段都允许客户端在值部分指定多个可接受的选项，有时甚至可以对这些选项的首选项进行排名。多个项以逗号分隔。例如，客户端可以发送包含 “Content-Encoding: gzip, compress,”的请求头，表示可以接受各种压缩类型。如果服务器的响应正文使用 gzip 编码，其响应头中将包含“Content-Encoding: gzip”。<br>有些字段可以在单个头中出现多次。例如，头可以有多个“Warning”字段。<br>下表列出了 HTTP 1.1 头字段。注意：有些头字段是 MIME 字段。MIME 字段在 Internet Engineering Task Force (IETF) 文档 RFC 2045 中进行了定义，但也可用于 HTTP 1.1 协议。有关 MIME 和 HTTP 1.1 规范的详细信息，请参阅 IEIF 页。<br><strong>请求头字段的具体含义</strong><br>Accept：浏览器可接受的MIME类型。<br>Accept-Charset：浏览器可接受的字符集。<br>Accept-Encoding：浏览器能够进行解码的数据编码方式，比如gzip。<br>Accept-Language：浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到。<br>Authorization：授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中。<br>Connection：表示是否需要持久连接。如果Servlet看到这里的值为“Keep-Alive”，或者看到请求使用的是HTTP 1.1（HTTP 1.1默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如Applet，图片），显著地减少下载所需要的时间。要实现这一点， Servlet需要在应答中发送一个Content-Length头，最简单的实现方法是：先把内容写入ByteArrayOutputStream，然后在正式写出内容之前计算它的大小。<br>Content-Length：表示请求消息正文的长度。<br>Cookie：设置cookie,这是最重要的请求头信息之一<br>From：请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它。<br>Host：初始URL中的主机和端口。<br>If-Modified-Since：只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答。<br>Pragma：指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝。<br>Referer：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。<br>User-Agent：浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用。<br>UA-Pixels，UA-Color，UA-OS，UA-CPU：由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型。<br><strong>实体头字段的具体含义</strong><br>Allow 服务器支持哪些请求方法（如GET、POST等）。<br>Content-Encoding 文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。<br>Content-Length 表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。<br>Content-Type 表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。<br>Date 当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。<br>Expires 应该在什么时候认为文档已经过期，从而不再缓存它？<br>Last-Modified 文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。<br>Location 表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。<br>Refresh 表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”, “5; URL=<a href="http://host/path&quot;)让浏览器读取指定的页面。" target="_blank" rel="noopener">http://host/path&quot;)让浏览器读取指定的页面。</a><br>注意这种功能通常是通过设置HTML页面HEAD区的＜META. HTTP-EQUIV=”Refresh” C＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置 Refresh头更加方便。<br>注意Refresh的意义是“N秒之后刷新本页面或访问指定页面”，而不是“每隔N秒刷新本页面或访问指定页面 ”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是＜META. HTTP-EQUIV=”Refresh” …＞。<br>注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/15/http/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux常用指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -507,7 +582,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/跨域/">跨域</a>
+      <a class="article-title" href="/2018/02/28/跨域/">跨域及解决方式</a>
     </h1>
   
 
@@ -521,7 +596,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>做前端经常后会碰到跨域的问题，这里做个总结。<br>由于我这边后端用的主要是php，所以后端主要以php为例。</p>
+<p>做前端开发经常会碰到跨域的问题，如何解决这个问题，这里做个总结。<br>由于我这边后端用的主要是php，所以后端主要以php为例。</p>
 <h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。<br>所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example.com/server.php" target="_blank" rel="noopener">http://www.example.com/server.php</a> （非跨域）<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example2.com/server.php" target="_blank" rel="noopener">http://www.example2.com/server.php</a> （主域名不同:example/example2，跨域）<br><a href="http://abc.example.com/index.html" target="_blank" rel="noopener">http://abc.example.com/index.html</a> 调用 <a href="http://def.example.com/server.php" target="_blank" rel="noopener">http://def.example.com/server.php</a> （子域名不同:abc/def，跨域）<br><a href="http://www.example.com:8080/index.html" target="_blank" rel="noopener">http://www.example.com:8080/index.html</a> 调用 <a href="http://www.example.com:8081/server.php" target="_blank" rel="noopener">http://www.example.com:8081/server.php</a> （端口不同:8080/8081，跨域）<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="https://www.example.com/server.php" target="_blank" rel="noopener">https://www.example.com/server.php</a> （协议不同:http/https，跨域）<br><strong>请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。</strong></p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>最常见的主要有以下三种方式</p>
 <h3 id="1、jsonp"><a href="#1、jsonp" class="headerlink" title="1、jsonp:"></a>1、jsonp:</h3><p>原理：将接口放在script标签中<br>前端代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		function cb(res)&#123;</span></span><br><span class="line"><span class="string">			console.log(res);</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" src="</span>http:<span class="comment">//www.example.com/server.php?callback=cb"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">	</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -595,7 +670,7 @@
 <h2 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h2><h1 id="ASCII-ISO-8859-1"><a href="#ASCII-ISO-8859-1" class="headerlink" title="ASCII/ISO 8859-1"></a>ASCII/ISO 8859-1</h1><p>ASCII是计算机最早的编码<br>ASCII是7位编码，能表示128个字符。<br>共有128个，用一个字节的低7位表示</p>
 <ul>
 <li>0~31 控制字符 如换行、回车、删除</li>
-<li>32~126 打印字符<br>后来计算机随着计算机的发展，启用了从128到255的字符，被称为”扩展字符集”。这就是ISO 8859-1编码，属于<strong>单字节编码</strong><br>显然，ISO 8859-1最多能表示的字符范围是0-255（编码范围是0x00-0xFF），其中0x00-0x7F之间完全和ASCII一致，因此向下兼容ASCII。<br>有些环境下，将ISO 8859-1写作Latin-1。<h1 id="汉字编码-GB2312-BIG5-GBK-GB18030"><a href="#汉字编码-GB2312-BIG5-GBK-GB18030" class="headerlink" title="汉字编码 GB2312/BIG5/GBK/GB18030"></a>汉字编码 GB2312/BIG5/GBK/GB18030</h1>中国的常用汉字有6000多个，如何保存呢？中华人民共和国政府制定GB2312标准是把ISO 8859-1编码中那些127号之后的奇异符号们直接取消掉，规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在GB2312编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br>GB2312是汉字的国标码，也是简体汉字编码规范。<br>中华民国政府制定的BIG5，是繁体汉字的编码规范。<br>GBK大字符集，简而言之就是将所有亚洲文字的<strong>双字节字符</strong>，包括简体中文，繁体中文，日语，韩语等，都使用一种格式编码，这样就能够做到在所有的语言平台上面兼容。GBK编码是兼容GB2312编码的，因此也是变长编码（双字节）。<br>GB18030包含少数民族民族文字<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1>Unicode是最统一的编码，可以用来表示所有语言的字符，而且是定长双字节（如果考虑辅助平面，也有四字节的）编码，包括英文字母在内，都以双字节表示，所以它是不兼容ISO 8859-1编码的。<br>Unicode的编码空间从U+0000到U+10FFFF，共有1,112,064个码位（code point）可用来映射字符. Unicode的编码空间可以划分为17个平面（plane），每个平面包含216（65,536）个码位。17个平面的码位可表示为从U+xx0000到U+xxFFFF， 其中xx表示十六进制值从00(16) 到10(16)，共计17个平面。第一个平面称为基本多语言平面（Basic Multilingual Plane, BMP），或称第零平面（Plane 0），码位从U+0000至U+FFFF，包含了最常用的字符。其他平面称为辅助平面(Supplementary Planes)。<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1>UTF 是 Unicode Translation Format，即把Unicode转做某种格式的意思。事实上可以这么认为，Unicode是一种编码方式，和ACSII是同一个概念，而UTF是一种存储方式（格式）。<br>UTF-16<br>Unicode基本多语言平面的字符只使用2个字节就可以表示了，真正需要扩展到4个字节来表示的字符少之又少。所以使用2个字节来表示Unicode代码是一种很自然的选择，例如英文的Unicode范围是0x0000-0x007F，中文的Unicode范围是0x4E00-0x9F**。<br>采用2字节来表示Unicode转化格式，它是定长的表示方法，不论什么字符都可以用两个字节表示<br>UTF-8<br>UTF-8采用一种变长技术，每个编码区域有不同的字码长度，不同的字符可以由1~6个字节组成。<br>编码规则如下：</li>
+<li>32~126 打印字符<br>后来计算机随着计算机的发展，启用了从128到255的字符，被称为”扩展字符集”。这就是ISO 8859-1编码，属于<strong>单字节编码</strong><br>显然，ISO 8859-1最多能表示的字符范围是0-255（编码范围是0x00-0xFF），其中0x00-0x7F之间完全和ASCII一致，因此向下兼容ASCII。<br>有些环境下，将ISO 8859-1写作Latin-1。<h1 id="汉字编码-GB2312-BIG5-GBK-GB18030"><a href="#汉字编码-GB2312-BIG5-GBK-GB18030" class="headerlink" title="汉字编码 GB2312/BIG5/GBK/GB18030"></a>汉字编码 GB2312/BIG5/GBK/GB18030</h1>中国的常用汉字有6000多个，如何保存呢？中华人民共和国政府制定GB2312标准是把ISO 8859-1编码中那些127号之后的奇异符号们直接取消掉，规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在GB2312编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br><strong>GB2312</strong>是汉字的国标码，也是简体汉字编码规范。<br>中华民国政府制定的<strong>BIG5</strong>，是繁体汉字的编码规范。<br><strong>GBK</strong>大字符集，简而言之就是将所有亚洲文字的<strong>双字节字符</strong>，包括简体中文，繁体中文，日语，韩语等，都使用一种格式编码，这样就能够做到在所有的语言平台上面兼容。GBK编码是兼容GB2312编码的，因此也是变长编码（双字节）。<br><strong>GB18030</strong>包含少数民族民族文字<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1>Unicode是最统一的编码，可以用来表示所有语言的字符，而且是定长双字节（如果考虑辅助平面，也有四字节的）编码，包括英文字母在内，都以双字节表示，所以它是不兼容ISO 8859-1编码的。<br>Unicode的编码空间从U+0000到U+10FFFF，共有1,112,064个码位（code point）可用来映射字符. Unicode的编码空间可以划分为17个平面（plane），每个平面包含216（65,536）个码位。17个平面的码位可表示为从U+xx0000到U+xxFFFF， 其中xx表示十六进制值从00(16) 到10(16)，共计17个平面。第一个平面称为基本多语言平面（Basic Multilingual Plane, BMP），或称第零平面（Plane 0），码位从U+0000至U+FFFF，包含了最常用的字符。其他平面称为辅助平面(Supplementary Planes)。<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1>UTF 是 Unicode Translation Format，即把Unicode转做某种格式的意思。事实上可以这么认为，Unicode是一种编码方式，和ACSII是同一个概念，而UTF是一种存储方式（格式）。<br><strong>UTF-16</strong><br>Unicode基本多语言平面的字符只使用2个字节就可以表示了，真正需要扩展到4个字节来表示的字符少之又少。所以使用2个字节来表示Unicode代码是一种很自然的选择，例如英文的Unicode范围是0x0000-0x007F，中文的Unicode范围是0x4E00-0x9FA5。<br>采用2字节来表示Unicode转化格式，它是定长的表示方法，不论什么字符都可以用两个字节表示<br><strong>UTF-8</strong><br>UTF-8采用一种变长技术，每个编码区域有不同的字码长度，不同的字符可以由1~6个字节组成。<br>编码规则如下：</li>
 <li>如果一个字节，最高位为0，表示这是一个ASCII字符（00~7F）</li>
 <li>如果一个字节，以11开头，连续的1的个数暗示这个字符的字节数 <blockquote>
 <p>如110xxxxx代表它是双字节UTF-8字符的首字母</p>
@@ -815,11 +890,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -827,7 +902,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
             
             <div class="clearfix"></div>

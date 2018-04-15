@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Dale&#39;s blog">
 <meta property="og:description" content="什么是编码？编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。解码，是编码的逆过程。计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个人类要表示的符号太多，无法用一个字节来完全表示 常见编码ASCII/ISO 8859-1ASCII是计算机最早的编码ASCII是7位编码，能表示128个字符。共有128个，用一个字节的低7位表示">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-15T10:41:23.033Z">
+<meta property="og:updated_time" content="2018-04-15T10:52:38.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见编码">
 <meta name="twitter:description" content="什么是编码？编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。解码，是编码的逆过程。计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个人类要表示的符号太多，无法用一个字节来完全表示 常见编码ASCII/ISO 8859-1ASCII是计算机最早的编码ASCII是7位编码，能表示128个字符。共有128个，用一个字节的低7位表示">
@@ -182,7 +182,7 @@
 <h2 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h2><h1 id="ASCII-ISO-8859-1"><a href="#ASCII-ISO-8859-1" class="headerlink" title="ASCII/ISO 8859-1"></a>ASCII/ISO 8859-1</h1><p>ASCII是计算机最早的编码<br>ASCII是7位编码，能表示128个字符。<br>共有128个，用一个字节的低7位表示</p>
 <ul>
 <li>0~31 控制字符 如换行、回车、删除</li>
-<li>32~126 打印字符<br>后来计算机随着计算机的发展，启用了从128到255的字符，被称为”扩展字符集”。这就是ISO 8859-1编码，属于<strong>单字节编码</strong><br>显然，ISO 8859-1最多能表示的字符范围是0-255（编码范围是0x00-0xFF），其中0x00-0x7F之间完全和ASCII一致，因此向下兼容ASCII。<br>有些环境下，将ISO 8859-1写作Latin-1。<h1 id="汉字编码-GB2312-BIG5-GBK-GB18030"><a href="#汉字编码-GB2312-BIG5-GBK-GB18030" class="headerlink" title="汉字编码 GB2312/BIG5/GBK/GB18030"></a>汉字编码 GB2312/BIG5/GBK/GB18030</h1>中国的常用汉字有6000多个，如何保存呢？中华人民共和国政府制定GB2312标准是把ISO 8859-1编码中那些127号之后的奇异符号们直接取消掉，规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在GB2312编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br>GB2312是汉字的国标码，也是简体汉字编码规范。<br>中华民国政府制定的BIG5，是繁体汉字的编码规范。<br>GBK大字符集，简而言之就是将所有亚洲文字的<strong>双字节字符</strong>，包括简体中文，繁体中文，日语，韩语等，都使用一种格式编码，这样就能够做到在所有的语言平台上面兼容。GBK编码是兼容GB2312编码的，因此也是变长编码（双字节）。<br>GB18030包含少数民族民族文字<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1>Unicode是最统一的编码，可以用来表示所有语言的字符，而且是定长双字节（如果考虑辅助平面，也有四字节的）编码，包括英文字母在内，都以双字节表示，所以它是不兼容ISO 8859-1编码的。<br>Unicode的编码空间从U+0000到U+10FFFF，共有1,112,064个码位（code point）可用来映射字符. Unicode的编码空间可以划分为17个平面（plane），每个平面包含216（65,536）个码位。17个平面的码位可表示为从U+xx0000到U+xxFFFF， 其中xx表示十六进制值从00(16) 到10(16)，共计17个平面。第一个平面称为基本多语言平面（Basic Multilingual Plane, BMP），或称第零平面（Plane 0），码位从U+0000至U+FFFF，包含了最常用的字符。其他平面称为辅助平面(Supplementary Planes)。<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1>UTF 是 Unicode Translation Format，即把Unicode转做某种格式的意思。事实上可以这么认为，Unicode是一种编码方式，和ACSII是同一个概念，而UTF是一种存储方式（格式）。<br>UTF-16<br>Unicode基本多语言平面的字符只使用2个字节就可以表示了，真正需要扩展到4个字节来表示的字符少之又少。所以使用2个字节来表示Unicode代码是一种很自然的选择，例如英文的Unicode范围是0x0000-0x007F，中文的Unicode范围是0x4E00-0x9F**。<br>采用2字节来表示Unicode转化格式，它是定长的表示方法，不论什么字符都可以用两个字节表示<br>UTF-8<br>UTF-8采用一种变长技术，每个编码区域有不同的字码长度，不同的字符可以由1~6个字节组成。<br>编码规则如下：</li>
+<li>32~126 打印字符<br>后来计算机随着计算机的发展，启用了从128到255的字符，被称为”扩展字符集”。这就是ISO 8859-1编码，属于<strong>单字节编码</strong><br>显然，ISO 8859-1最多能表示的字符范围是0-255（编码范围是0x00-0xFF），其中0x00-0x7F之间完全和ASCII一致，因此向下兼容ASCII。<br>有些环境下，将ISO 8859-1写作Latin-1。<h1 id="汉字编码-GB2312-BIG5-GBK-GB18030"><a href="#汉字编码-GB2312-BIG5-GBK-GB18030" class="headerlink" title="汉字编码 GB2312/BIG5/GBK/GB18030"></a>汉字编码 GB2312/BIG5/GBK/GB18030</h1>中国的常用汉字有6000多个，如何保存呢？中华人民共和国政府制定GB2312标准是把ISO 8859-1编码中那些127号之后的奇异符号们直接取消掉，规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在GB2312编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br><strong>GB2312</strong>是汉字的国标码，也是简体汉字编码规范。<br>中华民国政府制定的<strong>BIG5</strong>，是繁体汉字的编码规范。<br><strong>GBK</strong>大字符集，简而言之就是将所有亚洲文字的<strong>双字节字符</strong>，包括简体中文，繁体中文，日语，韩语等，都使用一种格式编码，这样就能够做到在所有的语言平台上面兼容。GBK编码是兼容GB2312编码的，因此也是变长编码（双字节）。<br><strong>GB18030</strong>包含少数民族民族文字<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1>Unicode是最统一的编码，可以用来表示所有语言的字符，而且是定长双字节（如果考虑辅助平面，也有四字节的）编码，包括英文字母在内，都以双字节表示，所以它是不兼容ISO 8859-1编码的。<br>Unicode的编码空间从U+0000到U+10FFFF，共有1,112,064个码位（code point）可用来映射字符. Unicode的编码空间可以划分为17个平面（plane），每个平面包含216（65,536）个码位。17个平面的码位可表示为从U+xx0000到U+xxFFFF， 其中xx表示十六进制值从00(16) 到10(16)，共计17个平面。第一个平面称为基本多语言平面（Basic Multilingual Plane, BMP），或称第零平面（Plane 0），码位从U+0000至U+FFFF，包含了最常用的字符。其他平面称为辅助平面(Supplementary Planes)。<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1>UTF 是 Unicode Translation Format，即把Unicode转做某种格式的意思。事实上可以这么认为，Unicode是一种编码方式，和ACSII是同一个概念，而UTF是一种存储方式（格式）。<br><strong>UTF-16</strong><br>Unicode基本多语言平面的字符只使用2个字节就可以表示了，真正需要扩展到4个字节来表示的字符少之又少。所以使用2个字节来表示Unicode代码是一种很自然的选择，例如英文的Unicode范围是0x0000-0x007F，中文的Unicode范围是0x4E00-0x9FA5。<br>采用2字节来表示Unicode转化格式，它是定长的表示方法，不论什么字符都可以用两个字节表示<br><strong>UTF-8</strong><br>UTF-8采用一种变长技术，每个编码区域有不同的字码长度，不同的字符可以由1~6个字节组成。<br>编码规则如下：</li>
 <li>如果一个字节，最高位为0，表示这是一个ASCII字符（00~7F）</li>
 <li>如果一个字节，以11开头，连续的1的个数暗示这个字符的字节数 <blockquote>
 <p>如110xxxxx代表它是双字节UTF-8字符的首字母</p>
@@ -297,7 +297,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          跨域
+          跨域及解决方式
         
       </div>
     </a>
@@ -446,11 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,7 +458,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
             
             <div class="clearfix"></div>

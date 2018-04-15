@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>跨域 | Dale&#39;s blog</title>
+  <title>跨域及解决方式 | Dale&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做前端经常后会碰到跨域的问题，这里做个总结。由于我这边后端用的主要是php，所以后端主要以php为例。 什么是跨域跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：http://www.example.com/index.html 调用 http://www.example">
+  <meta name="description" content="做前端开发经常会碰到跨域的问题，如何解决这个问题，这里做个总结。由于我这边后端用的主要是php，所以后端主要以php为例。 什么是跨域跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：http://www.example.com/index.html 调用 http://w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跨域">
+<meta property="og:title" content="跨域及解决方式">
 <meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/02/28/跨域/index.html">
 <meta property="og:site_name" content="Dale&#39;s blog">
-<meta property="og:description" content="做前端经常后会碰到跨域的问题，这里做个总结。由于我这边后端用的主要是php，所以后端主要以php为例。 什么是跨域跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：http://www.example.com/index.html 调用 http://www.example">
+<meta property="og:description" content="做前端开发经常会碰到跨域的问题，如何解决这个问题，这里做个总结。由于我这边后端用的主要是php，所以后端主要以php为例。 什么是跨域跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：http://www.example.com/index.html 调用 http://w">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-10T09:43:46.757Z">
+<meta property="og:updated_time" content="2018-04-15T10:58:49.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跨域">
-<meta name="twitter:description" content="做前端经常后会碰到跨域的问题，这里做个总结。由于我这边后端用的主要是php，所以后端主要以php为例。 什么是跨域跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：http://www.example.com/index.html 调用 http://www.example">
+<meta name="twitter:title" content="跨域及解决方式">
+<meta name="twitter:description" content="做前端开发经常会碰到跨域的问题，如何解决这个问题，这里做个总结。由于我这边后端用的主要是php，所以后端主要以php为例。 什么是跨域跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：http://www.example.com/index.html 调用 http://w">
   
     <link rel="alternative" href="/atom.xml" title="Dale&#39;s blog" type="application/atom+xml">
   
@@ -165,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      跨域
+      跨域及解决方式
     </h1>
   
 
@@ -179,7 +179,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>做前端经常后会碰到跨域的问题，这里做个总结。<br>由于我这边后端用的主要是php，所以后端主要以php为例。</p>
+<p>做前端开发经常会碰到跨域的问题，如何解决这个问题，这里做个总结。<br>由于我这边后端用的主要是php，所以后端主要以php为例。</p>
 <h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。<br>所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example.com/server.php" target="_blank" rel="noopener">http://www.example.com/server.php</a> （非跨域）<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example2.com/server.php" target="_blank" rel="noopener">http://www.example2.com/server.php</a> （主域名不同:example/example2，跨域）<br><a href="http://abc.example.com/index.html" target="_blank" rel="noopener">http://abc.example.com/index.html</a> 调用 <a href="http://def.example.com/server.php" target="_blank" rel="noopener">http://def.example.com/server.php</a> （子域名不同:abc/def，跨域）<br><a href="http://www.example.com:8080/index.html" target="_blank" rel="noopener">http://www.example.com:8080/index.html</a> 调用 <a href="http://www.example.com:8081/server.php" target="_blank" rel="noopener">http://www.example.com:8081/server.php</a> （端口不同:8080/8081，跨域）<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="https://www.example.com/server.php" target="_blank" rel="noopener">https://www.example.com/server.php</a> （协议不同:http/https，跨域）<br><strong>请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。</strong></p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>最常见的主要有以下三种方式</p>
 <h3 id="1、jsonp"><a href="#1、jsonp" class="headerlink" title="1、jsonp:"></a>1、jsonp:</h3><p>原理：将接口放在script标签中<br>前端代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		function cb(res)&#123;</span></span><br><span class="line"><span class="string">			console.log(res);</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" src="</span>http:<span class="comment">//www.example.com/server.php?callback=cb"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">	</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -443,11 +443,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,7 +455,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
             
             <div class="clearfix"></div>
