@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>常见编码 | Dale&#39;s blog</title>
+  <title>图片懒加载 | Dale&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是编码？编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。解码，是编码的逆过程。计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个人类要表示的符号太多，无法用一个字节来完全表示 常见编码ASCII/ISO 8859-1ASCII是计算机最早的编码ASCII是7位编码，能表示128个字符。共有128个，用一个字节的低7位表示">
+  <meta name="description" content="在前端工作中经常会碰到同一页面有大量图片的情况，图片如果比较大可能会加载比较慢，用户体验特别差 我们可以通过懒加载的方式暂时页面，以获得更好的用户体验 先写html12345678910111213141516171819&amp;lt;body&amp;gt;&amp;lt;div id=&quot;box&quot;&amp;gt;	&amp;lt;img class=&quot;img&quot; src=&quot;http://c.hiphotos.baidu.com/zhi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见编码">
-<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/02/28/编码/index.html">
+<meta property="og:title" content="图片懒加载">
+<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/04/23/图片懒加载/index.html">
 <meta property="og:site_name" content="Dale&#39;s blog">
-<meta property="og:description" content="什么是编码？编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。解码，是编码的逆过程。计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个人类要表示的符号太多，无法用一个字节来完全表示 常见编码ASCII/ISO 8859-1ASCII是计算机最早的编码ASCII是7位编码，能表示128个字符。共有128个，用一个字节的低7位表示">
+<meta property="og:description" content="在前端工作中经常会碰到同一页面有大量图片的情况，图片如果比较大可能会加载比较慢，用户体验特别差 我们可以通过懒加载的方式暂时页面，以获得更好的用户体验 先写html12345678910111213141516171819&amp;lt;body&amp;gt;&amp;lt;div id=&quot;box&quot;&amp;gt;	&amp;lt;img class=&quot;img&quot; src=&quot;http://c.hiphotos.baidu.com/zhi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-15T10:52:38.151Z">
+<meta property="og:updated_time" content="2018-04-23T15:53:33.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见编码">
-<meta name="twitter:description" content="什么是编码？编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。解码，是编码的逆过程。计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个人类要表示的符号太多，无法用一个字节来完全表示 常见编码ASCII/ISO 8859-1ASCII是计算机最早的编码ASCII是7位编码，能表示128个字符。共有128个，用一个字节的低7位表示">
+<meta name="twitter:title" content="图片懒加载">
+<meta name="twitter:description" content="在前端工作中经常会碰到同一页面有大量图片的情况，图片如果比较大可能会加载比较慢，用户体验特别差 我们可以通过懒加载的方式暂时页面，以获得更好的用户体验 先写html12345678910111213141516171819&amp;lt;body&amp;gt;&amp;lt;div id=&quot;box&quot;&amp;gt;	&amp;lt;img class=&quot;img&quot; src=&quot;http://c.hiphotos.baidu.com/zhi">
   
     <link rel="alternative" href="/atom.xml" title="Dale&#39;s blog" type="application/atom+xml">
   
@@ -158,38 +158,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-编码" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-图片懒加载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      常见编码
+      图片懒加载
     </h1>
   
 
         
-        <a href="/2018/02/28/编码/" class="archive-article-date">
-  	<time datetime="2018-02-28T14:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+        <a href="/2018/04/23/图片懒加载/" class="archive-article-date">
+  	<time datetime="2018-04-23T15:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是编码？"><a href="#什么是编码？" class="headerlink" title="什么是编码？"></a>什么是编码？</h2><p>编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。<br>解码，是编码的逆过程。<br>计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个<br>人类要表示的符号太多，无法用一个字节来完全表示</p>
-<h2 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h2><h1 id="ASCII-ISO-8859-1"><a href="#ASCII-ISO-8859-1" class="headerlink" title="ASCII/ISO 8859-1"></a>ASCII/ISO 8859-1</h1><p>ASCII是计算机最早的编码<br>ASCII是7位编码，能表示128个字符。<br>共有128个，用一个字节的低7位表示</p>
-<ul>
-<li>0~31 控制字符 如换行、回车、删除</li>
-<li>32~126 打印字符<br>后来计算机随着计算机的发展，启用了从128到255的字符，被称为”扩展字符集”。这就是ISO 8859-1编码，属于<strong>单字节编码</strong><br>显然，ISO 8859-1最多能表示的字符范围是0-255（编码范围是0x00-0xFF），其中0x00-0x7F之间完全和ASCII一致，因此向下兼容ASCII。<br>有些环境下，将ISO 8859-1写作Latin-1。<h1 id="汉字编码-GB2312-BIG5-GBK-GB18030"><a href="#汉字编码-GB2312-BIG5-GBK-GB18030" class="headerlink" title="汉字编码 GB2312/BIG5/GBK/GB18030"></a>汉字编码 GB2312/BIG5/GBK/GB18030</h1>中国的常用汉字有6000多个，如何保存呢？中华人民共和国政府制定GB2312标准是把ISO 8859-1编码中那些127号之后的奇异符号们直接取消掉，规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在GB2312编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br><strong>GB2312</strong>是汉字的国标码，也是简体汉字编码规范。<br>中华民国政府制定的<strong>BIG5</strong>，是繁体汉字的编码规范。<br><strong>GBK</strong>大字符集，简而言之就是将所有亚洲文字的<strong>双字节字符</strong>，包括简体中文，繁体中文，日语，韩语等，都使用一种格式编码，这样就能够做到在所有的语言平台上面兼容。GBK编码是兼容GB2312编码的，因此也是变长编码（双字节）。<br><strong>GB18030</strong>包含少数民族民族文字<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1>Unicode是最统一的编码，可以用来表示所有语言的字符，而且是定长双字节（如果考虑辅助平面，也有四字节的）编码，包括英文字母在内，都以双字节表示，所以它是不兼容ISO 8859-1编码的。<br>Unicode的编码空间从U+0000到U+10FFFF，共有1,112,064个码位（code point）可用来映射字符. Unicode的编码空间可以划分为17个平面（plane），每个平面包含216（65,536）个码位。17个平面的码位可表示为从U+xx0000到U+xxFFFF， 其中xx表示十六进制值从00(16) 到10(16)，共计17个平面。第一个平面称为基本多语言平面（Basic Multilingual Plane, BMP），或称第零平面（Plane 0），码位从U+0000至U+FFFF，包含了最常用的字符。其他平面称为辅助平面(Supplementary Planes)。<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1>UTF 是 Unicode Translation Format，即把Unicode转做某种格式的意思。事实上可以这么认为，Unicode是一种编码方式，和ACSII是同一个概念，而UTF是一种存储方式（格式）。<br><strong>UTF-16</strong><br>Unicode基本多语言平面的字符只使用2个字节就可以表示了，真正需要扩展到4个字节来表示的字符少之又少。所以使用2个字节来表示Unicode代码是一种很自然的选择，例如英文的Unicode范围是0x0000-0x007F，中文的Unicode范围是0x4E00-0x9FA5。<br>采用2字节来表示Unicode转化格式，它是定长的表示方法，不论什么字符都可以用两个字节表示<br><strong>UTF-8</strong><br>UTF-8采用一种变长技术，每个编码区域有不同的字码长度，不同的字符可以由1~6个字节组成。<br>编码规则如下：</li>
-<li>如果一个字节，最高位为0，表示这是一个ASCII字符（00~7F）</li>
-<li>如果一个字节，以11开头，连续的1的个数暗示这个字符的字节数 <blockquote>
-<p>如110xxxxx代表它是双字节UTF-8字符的首字母</p>
-</blockquote>
-</li>
-<li>如果一个字节，以10开始，表示它不是首字节，需要向前查找才能得到当前字符的首字节</li>
-</ul>
+        <p>在前端工作中经常会碰到同一页面有大量图片的情况，图片如果比较大可能会加载比较慢，用户体验特别差</p>
+<p>我们可以通过懒加载的方式暂时页面，以获得更好的用户体验</p>
+<p>先写html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-001.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-003.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-004.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-005.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-007.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-007.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-008.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-009.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -279,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/02/28/编码/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/04/23/图片懒加载/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,18 +284,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/28/跨域/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          跨域及解决方式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/25/文章标题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo + GithubPages  搭建博客</div>
+    <a href="/2018/04/15/http/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP协议</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -343,7 +325,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "Wed Feb 28 2018 22:39:41 GMT+0800",
+  id: "Mon Apr 23 2018 23:48:51 GMT+0800",
   owner: 'daiyuqing',
   repo: 'daiyuqing.github.io',
   oauth: {

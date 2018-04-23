@@ -156,6 +156,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-图片懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/图片懒加载/">图片懒加载</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/23/图片懒加载/" class="archive-article-date">
+  	<time datetime="2018-04-23T15:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在前端工作中经常会碰到同一页面有大量图片的情况，图片如果比较大可能会加载比较慢，用户体验特别差</p>
+<p>我们可以通过懒加载的方式暂时页面，以获得更好的用户体验</p>
+<p>先写html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-001.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-003.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-004.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-005.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-007.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-007.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-008.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-009.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img"</span> <span class="attr">src</span>=<span class="string">"http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0fc534312c34349b74536681fcda39f8/f9198618367adab46005ce688fd4b31c8601e4c0.jpg"</span> <span class="attr">data-src</span>=<span class="string">'http://img.ivsky.com/img/tupian/t/201801/06/haian-002.jpg'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/23/图片懒加载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-http" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -890,7 +955,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,11 +963,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
