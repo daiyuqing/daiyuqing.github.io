@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Dale&#39;s blog">
 <meta property="og:description" content="行定位符（^和$) ^表示开头 /^ab/ 匹配以ab开头的单词 $表示结尾 /ab$/ 匹配以ab结尾的单词  单词界定符(\b,\B)\b\b 匹配独立的单词／\btm\b／匹配tm,当tm在别的单词中时，不匹配\B\B 与\b\b相反，匹配的不能是一个完整的单词 字符类（[])[]匹配方括号内的任一字符／[ab]／ 匹配a或b 选择字符（|）| 匹配‘|’两边的字符／a|b／ 匹配a或b 连">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T06:25:49.709Z">
+<meta property="og:updated_time" content="2018-04-29T11:38:55.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="行定位符（^和$) ^表示开头 /^ab/ 匹配以ab开头的单词 $表示结尾 /ab$/ 匹配以ab结尾的单词  单词界定符(\b,\B)\b\b 匹配独立的单词／\btm\b／匹配tm,当tm在别的单词中时，不匹配\B\B 与\b\b相反，匹配的不能是一个完整的单词 字符类（[])[]匹配方括号内的任一字符／[ab]／ 匹配a或b 选择字符（|）| 匹配‘|’两边的字符／a|b／ 匹配a或b 连">
@@ -178,20 +178,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="行定位符（-和"><a href="#行定位符（-和" class="headerlink" title="行定位符（^和$)"></a>行定位符（^和$)</h2><p> ^表示开头<br> /^ab/ 匹配以ab开头的单词<br> $表示结尾<br> /ab$/ 匹配以ab结尾的单词 </p>
-<h2 id="单词界定符-b-B"><a href="#单词界定符-b-B" class="headerlink" title="单词界定符(\b,\B)"></a>单词界定符(\b,\B)</h2><p>\b\b 匹配独立的单词<br><code>／\btm\b／</code>匹配tm,当tm在别的单词中时，不匹配<br>\B\B 与\b\b相反，匹配的不能是一个完整的单词</p>
-<h2 id="字符类（"><a href="#字符类（" class="headerlink" title="字符类（[])"></a>字符类（[])</h2><p>[]匹配方括号内的任一字符<br>／[ab]／ 匹配a或b</p>
-<h2 id="选择字符（-）"><a href="#选择字符（-）" class="headerlink" title="选择字符（|）"></a>选择字符（|）</h2><p>| 匹配‘|’两边的字符<br>／a|b／ 匹配a或b</p>
-<h2 id="连字符（-）"><a href="#连字符（-）" class="headerlink" title="连字符（-）"></a>连字符（-）</h2><ul>
-<li>表示字符的范围<br>／0-9／ 匹配0到9数字字符<h2 id="排除字符（"><a href="#排除字符（" class="headerlink" title="排除字符（[^])"></a>排除字符（[^])</h2>[^] 匹配不符合命名规则的变量<br>／[^0-9]／ 匹配除0到9的数字以外的字符<h2 id="限定符（？-n-m-）"><a href="#限定符（？-n-m-）" class="headerlink" title="限定符（？, * ,+,{n,m}）"></a>限定符（？, * ,+,{n,m}）</h2>?  匹配一次或0次</li>
+        <h3 id="行定位符（-和"><a href="#行定位符（-和" class="headerlink" title="行定位符（^和$)"></a>行定位符（^和$)</h3><p> ^表示开头<br> /^ab/ 匹配以ab开头的单词<br> $表示结尾<br> /ab$/ 匹配以ab结尾的单词 </p>
+<h3 id="单词界定符-b-B"><a href="#单词界定符-b-B" class="headerlink" title="单词界定符(\b,\B)"></a>单词界定符(\b,\B)</h3><p>\b\b 匹配独立的单词<br><code>／\btm\b／</code>匹配tm,当tm在别的单词中时，不匹配<br>\B\B 与\b\b相反，匹配的不能是一个完整的单词</p>
+<h3 id="字符类（"><a href="#字符类（" class="headerlink" title="字符类（[])"></a>字符类（[])</h3><p>[]匹配方括号内的任一字符<br>／[ab]／ 匹配a或b</p>
+<h3 id="选择字符（-）"><a href="#选择字符（-）" class="headerlink" title="选择字符（|）"></a>选择字符（|）</h3><p>| 匹配‘|’两边的字符<br>／a|b／ 匹配a或b</p>
+<h3 id="连字符（-）"><a href="#连字符（-）" class="headerlink" title="连字符（-）"></a>连字符（-）</h3><ul>
+<li>表示字符的范围<br>／0-9／ 匹配0到9数字字符<h3 id="排除字符（"><a href="#排除字符（" class="headerlink" title="排除字符（[^])"></a>排除字符（[^])</h3>[^] 匹配不符合命名规则的变量<br>／[^0-9]／ 匹配除0到9的数字以外的字符<h3 id="限定符（？-n-m-）"><a href="#限定符（？-n-m-）" class="headerlink" title="限定符（？, * ,+,{n,m}）"></a>限定符（？, * ,+,{n,m}）</h3>?  匹配一次或0次</li>
 </ul>
 <ul>
 <li>匹配0次或多次</li>
 </ul>
 <ul>
-<li>匹配一次或多次<br>{n,m} 匹配n次到m次<h2 id="点号字符（"><a href="#点号字符（" class="headerlink" title="点号字符（.)"></a>点号字符（.)</h2>. 匹配除换行符外的任意字符<h2 id="转义字符（"><a href="#转义字符（" class="headerlink" title="转义字符（ \ )"></a>转义字符（ \ )</h2>\ 将特殊字符转化为普通字符<h2 id="反斜线（"><a href="#反斜线（" class="headerlink" title="反斜线（\ )"></a>反斜线（\ )</h2>\ 将一些不可打印的字符显示出来<h2 id="括号字符（（））"><a href="#括号字符（（））" class="headerlink" title="括号字符（（））"></a>括号字符（（））</h2>改变限定符的作用范围<br>/(thir|four)th/  匹配thirth和fourth<br>分组<br>([0-9][a-z]){3} 将[0-9][a-z]重复3次</li>
+<li>匹配一次或多次<br>{n,m} 匹配n次到m次<h3 id="点号字符（"><a href="#点号字符（" class="headerlink" title="点号字符（.)"></a>点号字符（.)</h3>. 匹配除换行符外的任意字符<h3 id="转义字符（"><a href="#转义字符（" class="headerlink" title="转义字符（ \ )"></a>转义字符（ \ )</h3>\ 将特殊字符转化为普通字符<h3 id="反斜线（"><a href="#反斜线（" class="headerlink" title="反斜线（\ )"></a>反斜线（\ )</h3>\ 将一些不可打印的字符显示出来<h3 id="括号字符（（））"><a href="#括号字符（（））" class="headerlink" title="括号字符（（））"></a>括号字符（（））</h3>改变限定符的作用范围<br>/(thir|four)th/  匹配thirth和fourth<br>分组<br>([0-9][a-z]){3} 将[0-9][a-z]重复3次</li>
 </ul>
-<h2 id="模式修饰符"><a href="#模式修饰符" class="headerlink" title="模式修饰符"></a>模式修饰符</h2><p>i 执行对大小写不敏感的匹配。<br>g 执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。<br>m 执行多行匹配。</p>
+<h3 id="模式修饰符"><a href="#模式修饰符" class="headerlink" title="模式修饰符"></a>模式修饰符</h3><p>i 执行对大小写不敏感的匹配。<br>g 执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。<br>m 执行多行匹配。</p>
 
       
 
