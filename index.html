@@ -156,6 +156,155 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js面向对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/03/js面向对象/">js面向对象</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/03/js面向对象/" class="archive-article-date">
+  	<time datetime="2018-06-03T04:26:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="js中万物皆对象"><a href="#js中万物皆对象" class="headerlink" title="js中万物皆对象"></a>js中万物皆对象</h2><p>在js中函数也是对象，像字符串、数字，数组等也是对象。</p>
+<h2 id="js中对象分为普通对象和函数对象"><a href="#js中对象分为普通对象和函数对象" class="headerlink" title="js中对象分为普通对象和函数对象"></a>js中对象分为普通对象和函数对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> o2=&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t1=<span class="keyword">new</span> <span class="built_in">Function</span>();</span><br><span class="line"><span class="keyword">var</span> t2=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面o1,o2为普通对象，t1,t2为函数对象<br>由new Function()生成的实例都是函数对象,其他都是普通对象。</p>
+<p><code>console.log(typeof(o1)===&quot;object&quot;);//true</code></p>
+<p><code>console.log(typeof(t1)===&quot;function&quot;);//true</code></p>
+<p>当我们判断一个对象是普通对象还是函数对象时，可以用instanceof判断.<br>若<code>A instanceof Function ===true</code>,则A是函数对象，否则是普通对象。</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.b=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+<p>上面代码person1是构造函数Person的实例。</p>
+<p>每个对象都有一个constructor属性，这个属性指向这个对象的构造函数。</p>
+<p><code>console.log(person1.constructor===Person); //true</code></p>
+<p>函数对象的constrctor属性都是指向Funtion.</p>
+<h2 id="原型对象"><a href="#原型对象" class="headerlink" title="原型对象"></a>原型对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.b=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person1._proto_===Person.prototype);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>每一个函数对象都有一个<code>prototype</code>属性，这个属性指向当前函数对象的原型对象。</p>
+<p>每一个对象（包括普通对象和函数对象）都有一个 <code>_proto_</code> 属性，这个属性指向当前对象的构造函数的原型对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.b=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.c=<span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person1.a);<span class="comment">//1</span></span><br><span class="line">consoel.log(person1.c);<span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<p>在Person的原型上定义一个属性c,<br>通过构造函数创建的对象拥有该构造函数原型上的所有属性；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.b=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=A.prototype;</span><br><span class="line"><span class="built_in">console</span>.log(a.constructor===A);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>上例中，a是A的原型对象，a的构造函数是A，说明<br><br><strong>原型对象实际上也是函数对象的一个实例。</strong></p>
+<h2 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h2><p>javascript<br>可以利用原型对象来进行继承的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> A=<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.num=num;</span><br><span class="line">&#125;;</span><br><span class="line">A.prototype.age=<span class="number">18</span>;</span><br><span class="line"><span class="keyword">var</span> B=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">B.prototype=<span class="keyword">new</span> A(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> b=<span class="keyword">new</span> B();</span><br><span class="line"><span class="built_in">console</span>.log(b.age);<span class="comment">//18</span></span><br><span class="line"><span class="built_in">console</span>.log(b.num);<span class="comment">//20</span></span><br></pre></td></tr></table></figure></p>
+<p>如上例中所示，当构造函数B的原型等于A的实例的时候，用B创建的实例都继承了A的实例中的方法。</p>
+<p>几乎所有对象都是Object的实例。</p>
+<p>当实例b访问属性b.age时，会先遍历自身属性中有没有age属性，然后会在构造函数的原型B.prototype中找，如果还没有会继续在A.prototype中找，直到最顶级原型Object.prototype中找。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/03/js面向对象/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js调用函数的4种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/js调用函数的4种方法/">js调用函数的4种方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/08/js调用函数的4种方法/" class="archive-article-date">
+  	<time datetime="2018-05-08T15:36:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>日常前端开发中绕不开调用函数,之前面试中面试官问过这样的问题,这里整理下javascript中调用函数的几种方式</p>
+<h3 id="1、直接调用"><a href="#1、直接调用" class="headerlink" title="1、直接调用"></a>1、直接调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>));<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、对象方法调用"><a href="#2、对象方法调用" class="headerlink" title="2、对象方法调用"></a>2、对象方法调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.add=add;</span><br><span class="line"><span class="built_in">console</span>.log(obj.add(<span class="number">1</span>,<span class="number">2</span>));  <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<h3 id="3、构造器方式"><a href="#3、构造器方式" class="headerlink" title="3、构造器方式"></a>3、构造器方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.a=a;</span><br><span class="line">	<span class="keyword">this</span>.b=b;</span><br><span class="line">	<span class="keyword">this</span>.add=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a+b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> obj2(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(o.add());<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、call和apply调用"><a href="#4、call和apply调用" class="headerlink" title="4、call和apply调用"></a>4、call和apply调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a+<span class="keyword">this</span>.b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.b=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> obj();</span><br><span class="line"><span class="built_in">console</span>.log(add.call(o));<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/08/js调用函数的4种方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -787,151 +936,6 @@
 
 
   
-    <article id="post-跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/跨域/">跨域及解决方式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/跨域/" class="archive-article-date">
-  	<time datetime="2018-02-28T15:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>做前端开发经常会碰到跨域的问题，如何解决这个问题，这里做个总结。<br>由于我这边后端用的主要是php，所以后端主要以php为例。</p>
-<h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。<br>所谓同源是指协议、域名、端口号都一样，其中有一个不一样可以视为跨域。举个例子：<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example.com/server.php" target="_blank" rel="noopener">http://www.example.com/server.php</a> （非跨域）<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="http://www.example2.com/server.php" target="_blank" rel="noopener">http://www.example2.com/server.php</a> （主域名不同:example/example2，跨域）<br><a href="http://abc.example.com/index.html" target="_blank" rel="noopener">http://abc.example.com/index.html</a> 调用 <a href="http://def.example.com/server.php" target="_blank" rel="noopener">http://def.example.com/server.php</a> （子域名不同:abc/def，跨域）<br><a href="http://www.example.com:8080/index.html" target="_blank" rel="noopener">http://www.example.com:8080/index.html</a> 调用 <a href="http://www.example.com:8081/server.php" target="_blank" rel="noopener">http://www.example.com:8081/server.php</a> （端口不同:8080/8081，跨域）<br><a href="http://www.example.com/index.html" target="_blank" rel="noopener">http://www.example.com/index.html</a> 调用 <a href="https://www.example.com/server.php" target="_blank" rel="noopener">https://www.example.com/server.php</a> （协议不同:http/https，跨域）<br><strong>请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。</strong></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>最常见的主要有以下三种方式</p>
-<h3 id="1、jsonp"><a href="#1、jsonp" class="headerlink" title="1、jsonp:"></a>1、jsonp:</h3><p>原理：将接口放在script标签中<br>前端代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		function cb(res)&#123;</span></span><br><span class="line"><span class="string">			console.log(res);</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&lt;/script&gt;</span></span><br><span class="line"><span class="string">	&lt;script type="</span>text/javascript<span class="string">" src="</span>http:<span class="comment">//www.example.com/server.php?callback=cb"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">	</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>后端代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$callback=$_REQUEST[callback];</span><br><span class="line">$result=<span class="number">1234566</span>;</span><br><span class="line"><span class="keyword">return</span> $callback+<span class="string">'('</span>+$result+<span class="string">')'</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：jsonp只支持get方法，不支持post方法</strong></p>
-<h3 id="2、代理："><a href="#2、代理：" class="headerlink" title="2、代理："></a>2、代理：</h3><p>原理：后端之间访问是不存在跨域的问题<br>比如<code>http://www.example.com/index.html</code>想要调用 <code>http://www.example2.com/server.php</code>的方法，可以写一个<code>http://www.example.com/server.php</code>，在后端调用<code>http://www.example2.com/server.php</code>的方法并拿到返回值返回给<code>index.html</code>，这样就绕过了跨域的问题</p>
-<h3 id="3、服务器端修改header（XHR2方式）"><a href="#3、服务器端修改header（XHR2方式）" class="headerlink" title="3、服务器端修改header（XHR2方式）"></a>3、服务器端修改header（XHR2方式）</h3><p>在服务器头部中加入以下两句即可：<br><code>header(&#39;Access-Control-Allow-Origin:*&#39;);//允许所有来源访问</code><br><code>header(&#39;Access-Control-Allow-Method:POST,GET&#39;);//允许访问的方式</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/跨域/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/编码/">常见编码</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/编码/" class="archive-article-date">
-  	<time datetime="2018-02-28T14:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是编码？"><a href="#什么是编码？" class="headerlink" title="什么是编码？"></a>什么是编码？</h2><p>编码是信息从一种形式或格式转换为另一种形式的过程也称为计算机编程语言的代码简称编码。<br>解码，是编码的逆过程。<br>计算机中存储信息的最小单元是一个字节，即8个bit，所以能表示的字符范围是0~255个<br>人类要表示的符号太多，无法用一个字节来完全表示</p>
-<h2 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h2><h1 id="ASCII-ISO-8859-1"><a href="#ASCII-ISO-8859-1" class="headerlink" title="ASCII/ISO 8859-1"></a>ASCII/ISO 8859-1</h1><p>ASCII是计算机最早的编码<br>ASCII是7位编码，能表示128个字符。<br>共有128个，用一个字节的低7位表示</p>
-<ul>
-<li>0~31 控制字符 如换行、回车、删除</li>
-<li>32~126 打印字符<br>后来计算机随着计算机的发展，启用了从128到255的字符，被称为”扩展字符集”。这就是ISO 8859-1编码，属于<strong>单字节编码</strong><br>显然，ISO 8859-1最多能表示的字符范围是0-255（编码范围是0x00-0xFF），其中0x00-0x7F之间完全和ASCII一致，因此向下兼容ASCII。<br>有些环境下，将ISO 8859-1写作Latin-1。<h1 id="汉字编码-GB2312-BIG5-GBK-GB18030"><a href="#汉字编码-GB2312-BIG5-GBK-GB18030" class="headerlink" title="汉字编码 GB2312/BIG5/GBK/GB18030"></a>汉字编码 GB2312/BIG5/GBK/GB18030</h1>中国的常用汉字有6000多个，如何保存呢？中华人民共和国政府制定GB2312标准是把ISO 8859-1编码中那些127号之后的奇异符号们直接取消掉，规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在GB2312编码里，还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br><strong>GB2312</strong>是汉字的国标码，也是简体汉字编码规范。<br>中华民国政府制定的<strong>BIG5</strong>，是繁体汉字的编码规范。<br><strong>GBK</strong>大字符集，简而言之就是将所有亚洲文字的<strong>双字节字符</strong>，包括简体中文，繁体中文，日语，韩语等，都使用一种格式编码，这样就能够做到在所有的语言平台上面兼容。GBK编码是兼容GB2312编码的，因此也是变长编码（双字节）。<br><strong>GB18030</strong>包含少数民族民族文字<h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1>Unicode是最统一的编码，可以用来表示所有语言的字符，而且是定长双字节（如果考虑辅助平面，也有四字节的）编码，包括英文字母在内，都以双字节表示，所以它是不兼容ISO 8859-1编码的。<br>Unicode的编码空间从U+0000到U+10FFFF，共有1,112,064个码位（code point）可用来映射字符. Unicode的编码空间可以划分为17个平面（plane），每个平面包含216（65,536）个码位。17个平面的码位可表示为从U+xx0000到U+xxFFFF， 其中xx表示十六进制值从00(16) 到10(16)，共计17个平面。第一个平面称为基本多语言平面（Basic Multilingual Plane, BMP），或称第零平面（Plane 0），码位从U+0000至U+FFFF，包含了最常用的字符。其他平面称为辅助平面(Supplementary Planes)。<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1>UTF 是 Unicode Translation Format，即把Unicode转做某种格式的意思。事实上可以这么认为，Unicode是一种编码方式，和ACSII是同一个概念，而UTF是一种存储方式（格式）。<br><strong>UTF-16</strong><br>Unicode基本多语言平面的字符只使用2个字节就可以表示了，真正需要扩展到4个字节来表示的字符少之又少。所以使用2个字节来表示Unicode代码是一种很自然的选择，例如英文的Unicode范围是0x0000-0x007F，中文的Unicode范围是0x4E00-0x9FA5。<br>采用2字节来表示Unicode转化格式，它是定长的表示方法，不论什么字符都可以用两个字节表示<br><strong>UTF-8</strong><br>UTF-8采用一种变长技术，每个编码区域有不同的字码长度，不同的字符可以由1~6个字节组成。<br>编码规则如下：</li>
-<li>如果一个字节，最高位为0，表示这是一个ASCII字符（00~7F）</li>
-<li>如果一个字节，以11开头，连续的1的个数暗示这个字符的字节数 <blockquote>
-<p>如110xxxxx代表它是双字节UTF-8字符的首字母</p>
-</blockquote>
-</li>
-<li>如果一个字节，以10开始，表示它不是首字节，需要向前查找才能得到当前字符的首字节</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/编码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1029,7 +1033,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1037,7 +1041,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>Markdown | Dale&#39;s blog</title>
+  <title>js调用函数的4种方法 | Dale&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、什么是Markdown?Markdown 是一种轻量级标记语言，它用简洁的语法代替排版，使我们专心于码字；它的目标是实现易读易写，成为一种适用于网络的书写语言。 二、Markdown的优点 让你专注于文字内容，而不是排版和样式问题，而且样式非常美观 大部分Markdown工具支持导出HTML、PDF和md文件 因为编辑的是纯文本内容，兼容所有的文本编辑器，如Notepad，Sublime T">
-<meta name="keywords" content="Markdown">
+  <meta name="description" content="日常前端开发中绕不开调用函数,之前面试中面试官问过这样的问题,这里整理下javascript中调用函数的几种方式 1、直接调用1234function add(a,b)&amp;#123;	return a+b;&amp;#125;console.log(add(1,2));// 3 2、对象方法调用123456var add=function(a,b)&amp;#123;	return a+b;&amp;#125;var ob">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown">
-<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/03/10/markdown/index.html">
+<meta property="og:title" content="js调用函数的4种方法">
+<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/05/08/js调用函数的4种方法/index.html">
 <meta property="og:site_name" content="Dale&#39;s blog">
-<meta property="og:description" content="一、什么是Markdown?Markdown 是一种轻量级标记语言，它用简洁的语法代替排版，使我们专心于码字；它的目标是实现易读易写，成为一种适用于网络的书写语言。 二、Markdown的优点 让你专注于文字内容，而不是排版和样式问题，而且样式非常美观 大部分Markdown工具支持导出HTML、PDF和md文件 因为编辑的是纯文本内容，兼容所有的文本编辑器，如Notepad，Sublime T">
+<meta property="og:description" content="日常前端开发中绕不开调用函数,之前面试中面试官问过这样的问题,这里整理下javascript中调用函数的几种方式 1、直接调用1234function add(a,b)&amp;#123;	return a+b;&amp;#125;console.log(add(1,2));// 3 2、对象方法调用123456var add=function(a,b)&amp;#123;	return a+b;&amp;#125;var ob">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5333180-6c4fba36e00e44cf..jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-10T09:39:27.723Z">
+<meta property="og:updated_time" content="2018-05-08T15:41:16.579Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown">
-<meta name="twitter:description" content="一、什么是Markdown?Markdown 是一种轻量级标记语言，它用简洁的语法代替排版，使我们专心于码字；它的目标是实现易读易写，成为一种适用于网络的书写语言。 二、Markdown的优点 让你专注于文字内容，而不是排版和样式问题，而且样式非常美观 大部分Markdown工具支持导出HTML、PDF和md文件 因为编辑的是纯文本内容，兼容所有的文本编辑器，如Notepad，Sublime T">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5333180-6c4fba36e00e44cf..jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="js调用函数的4种方法">
+<meta name="twitter:description" content="日常前端开发中绕不开调用函数,之前面试中面试官问过这样的问题,这里整理下javascript中调用函数的几种方式 1、直接调用1234function add(a,b)&amp;#123;	return a+b;&amp;#125;console.log(add(1,2));// 3 2、对象方法调用123456var add=function(a,b)&amp;#123;	return a+b;&amp;#125;var ob">
   
     <link rel="alternative" href="/atom.xml" title="Dale&#39;s blog" type="application/atom+xml">
   
@@ -161,48 +158,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-markdown" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js调用函数的4种方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Markdown
+      js调用函数的4种方法
     </h1>
   
 
         
-        <a href="/2018/03/10/markdown/" class="archive-article-date">
-  	<time datetime="2018-03-10T08:42:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
+        <a href="/2018/05/08/js调用函数的4种方法/" class="archive-article-date">
+  	<time datetime="2018-05-08T15:36:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="一、什么是Markdown"><a href="#一、什么是Markdown" class="headerlink" title="一、什么是Markdown?"></a>一、什么是Markdown?</h2><p>Markdown 是一种轻量级标记语言，它用简洁的语法代替排版，使我们专心于码字；它的目标是实现易读易写，成为一种适用于网络的书写语言。</p>
-<h2 id="二、Markdown的优点"><a href="#二、Markdown的优点" class="headerlink" title="二、Markdown的优点"></a>二、Markdown的优点</h2><ul>
-<li>让你专注于文字内容，而不是排版和样式问题，而且样式非常美观</li>
-<li>大部分Markdown工具支持导出HTML、PDF和md文件</li>
-<li>因为编辑的是纯文本内容，兼容所有的文本编辑器，如Notepad，Sublime Text，Vim等</li>
-<li>可读，直观，适合所有人的写作语言，不管你需要编写代码还是公式，甚至是流程图</li>
-<li>可以是一些博客平台配套的编辑器，比如Hexo，而且现在很多平台都支持Mrakdown编辑，如简书，微博和知乎等</li>
-<li>学习起来非常的简单，性价比非常高的一次投资<h2 id="三、Markdown的语法规则"><a href="#三、Markdown的语法规则" class="headerlink" title="三、Markdown的语法规则"></a>三、Markdown的语法规则</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3>在标题前面加上<code>#</code><br><code>#  一级标题</code><br><code>##  二级标题</code><br><code>### 三级标题</code><br><code>####  四级标题</code><br><code>#####  五级标题</code><br><code>######  六级标题</code><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4>在列表项前面加上<code>-</code>,<code>+</code>或<code>*</code><br><code>* 苹果</code><br><code>* 菠萝</code><br><code>* 橘子</code><br>效果</li>
-<li>苹果</li>
-<li>菠萝</li>
-<li>橘子<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4>在列表项前面加上数字和一个英文句点<br><code>1. 苹果</code><br><code>2. 菠萝</code><br><code>3. 橘子</code><br>效果：</li>
-</ul>
-<ol>
-<li>苹果</li>
-<li>菠萝</li>
-<li>橘子<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。<br><code>***</code><br><code>* * *</code><br><code>---</code><br><code>- - -</code><br><code>___</code><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><code>[链接文字](链接地址)</code><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><code>&gt; 这是引用</code><br>效果：<blockquote>
-<p>这是引用</p>
-</blockquote>
-<h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3>两个 <em> 包含一段文本就是粗体的语法，用一个 </em> 包含一段文本就是斜体的语法。<br><code>**粗体**</code><br><code>*斜体*</code><br>效果：<br><strong>粗体</strong><br><em>斜体</em><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><code>！[图片描述](图片链接)</code><br>效果：<br><img src="http://upload-images.jianshu.io/upload_images/5333180-6c4fba36e00e44cf..jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="logo"><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>使用反撇号， 将代码包在里面。<br>如果是一大段代码则使用三个反撇号。</li>
-</ol>
-
+        <p>日常前端开发中绕不开调用函数,之前面试中面试官问过这样的问题,这里整理下javascript中调用函数的几种方式</p>
+<h3 id="1、直接调用"><a href="#1、直接调用" class="headerlink" title="1、直接调用"></a>1、直接调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>));<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、对象方法调用"><a href="#2、对象方法调用" class="headerlink" title="2、对象方法调用"></a>2、对象方法调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.add=add;</span><br><span class="line"><span class="built_in">console</span>.log(obj.add(<span class="number">1</span>,<span class="number">2</span>));  <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<h3 id="3、构造器方式"><a href="#3、构造器方式" class="headerlink" title="3、构造器方式"></a>3、构造器方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj2=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.a=a;</span><br><span class="line">	<span class="keyword">this</span>.b=b;</span><br><span class="line">	<span class="keyword">this</span>.add=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a+b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> obj2(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(o.add());<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、call和apply调用"><a href="#4、call和apply调用" class="headerlink" title="4、call和apply调用"></a>4、call和apply调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a+<span class="keyword">this</span>.b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.b=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> obj();</span><br><span class="line"><span class="built_in">console</span>.log(add.call(o));<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -241,17 +221,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -302,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/03/10/markdown/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/05/08/js调用函数的4种方法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +285,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/10/Rax/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/03/js面向对象/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Rax - 跨容器的渲染引擎
+          js面向对象
         
       </div>
     </a>
   
   
-    <a href="/2018/02/28/git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git</div>
+    <a href="/2018/04/29/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,7 +335,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "Sat Mar 10 2018 16:42:06 GMT+0800",
+  id: "Tue May 08 2018 23:36:12 GMT+0800",
   owner: 'daiyuqing',
   repo: 'daiyuqing.github.io',
   oauth: {
