@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>移动端屏幕适配问题 | Dale&#39;s blog</title>
+  <title>前端缓存 | Dale&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言随着移动互联网的迅猛发展，人们在移动端使用互联网的时间占比越来越大，对于移动端应用的需求也越来越高。在日常前端开发中由于移动设备的屏幕尺寸千奇百怪，如何在不同尺寸的手机设备上，页面“相对性的达到合理的展示（自适应）”或者“保持统一效果的等比缩放（看起来差不多）”，是一个值得探讨的问题。 几个关键的名词首先，先来看一下物理像素。以iphone6为例，可知道：分辨率：750pt x 1134pt指">
+  <meta name="description" content="前言 在前端开发中，缓存有利于加快网页的加载速度，同时缓存能够被反复利用，所以可以减少流量和带宽的开销。  缓存的分类有很多种，CDN缓存、数据库缓存、代理服务器缓存和浏览器缓存。下面主要总结一下Web开发中的浏览器缓存。 正文应用层缓存HTML5中的localStorage和sessionStorage就属于应用层缓存。  localStorage - 用于长久保存整个网站的数据，保存的数据没有">
+<meta name="keywords" content="缓存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动端屏幕适配问题">
-<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/04/24/移动端屏幕适配问题/index.html">
+<meta property="og:title" content="前端缓存">
+<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/07/21/前端缓存/index.html">
 <meta property="og:site_name" content="Dale&#39;s blog">
-<meta property="og:description" content="前言随着移动互联网的迅猛发展，人们在移动端使用互联网的时间占比越来越大，对于移动端应用的需求也越来越高。在日常前端开发中由于移动设备的屏幕尺寸千奇百怪，如何在不同尺寸的手机设备上，页面“相对性的达到合理的展示（自适应）”或者“保持统一效果的等比缩放（看起来差不多）”，是一个值得探讨的问题。 几个关键的名词首先，先来看一下物理像素。以iphone6为例，可知道：分辨率：750pt x 1134pt指">
+<meta property="og:description" content="前言 在前端开发中，缓存有利于加快网页的加载速度，同时缓存能够被反复利用，所以可以减少流量和带宽的开销。  缓存的分类有很多种，CDN缓存、数据库缓存、代理服务器缓存和浏览器缓存。下面主要总结一下Web开发中的浏览器缓存。 正文应用层缓存HTML5中的localStorage和sessionStorage就属于应用层缓存。  localStorage - 用于长久保存整个网站的数据，保存的数据没有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-06T08:12:58.661Z">
+<meta property="og:updated_time" content="2018-07-21T03:27:03.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="移动端屏幕适配问题">
-<meta name="twitter:description" content="前言随着移动互联网的迅猛发展，人们在移动端使用互联网的时间占比越来越大，对于移动端应用的需求也越来越高。在日常前端开发中由于移动设备的屏幕尺寸千奇百怪，如何在不同尺寸的手机设备上，页面“相对性的达到合理的展示（自适应）”或者“保持统一效果的等比缩放（看起来差不多）”，是一个值得探讨的问题。 几个关键的名词首先，先来看一下物理像素。以iphone6为例，可知道：分辨率：750pt x 1134pt指">
+<meta name="twitter:title" content="前端缓存">
+<meta name="twitter:description" content="前言 在前端开发中，缓存有利于加快网页的加载速度，同时缓存能够被反复利用，所以可以减少流量和带宽的开销。  缓存的分类有很多种，CDN缓存、数据库缓存、代理服务器缓存和浏览器缓存。下面主要总结一下Web开发中的浏览器缓存。 正文应用层缓存HTML5中的localStorage和sessionStorage就属于应用层缓存。  localStorage - 用于长久保存整个网站的数据，保存的数据没有">
   
     <link rel="alternative" href="/atom.xml" title="Dale&#39;s blog" type="application/atom+xml">
   
@@ -158,35 +159,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-移动端屏幕适配问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端缓存" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      移动端屏幕适配问题
+      前端缓存
     </h1>
   
 
         
-        <a href="/2018/04/24/移动端屏幕适配问题/" class="archive-article-date">
-  	<time datetime="2018-04-24T14:10:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
+        <a href="/2018/07/21/前端缓存/" class="archive-article-date">
+  	<time datetime="2018-07-21T03:25:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着移动互联网的迅猛发展，人们在移动端使用互联网的时间占比越来越大，对于移动端应用的需求也越来越高。在日常前端开发中由于移动设备的屏幕尺寸千奇百怪，如何在不同尺寸的手机设备上，页面“相对性的达到合理的展示（自适应）”或者“保持统一效果的等比缩放（看起来差不多）”，是一个值得探讨的问题。</p>
-<h2 id="几个关键的名词"><a href="#几个关键的名词" class="headerlink" title="几个关键的名词"></a>几个关键的名词</h2><p>首先，先来看一下<strong>物理像素</strong>。<br>以iphone6为例，可知道：<br><strong>分辨率：750pt x 1134pt</strong><br>指的是屏幕上垂直有1134个物理像素，水平有750个物理像素。<br><strong>屏幕尺寸：4.7in</strong><br>注意英寸是长度单位，不是面积单位。4.7英寸指的是屏幕对角线的长度，1英寸等于2.54cm。<br><strong>屏幕像素密度：326ppi</strong><br>指的是每英寸屏幕所拥有的像素数，在显示器中，dpi=ppi。dpi强调的是每英寸多少点。同时，屏幕像素密度=分辨率/屏幕尺寸<br>接着，我们来看一下其他的单位。<br><strong>设备独立像素</strong>：设备独立像素，不同于设备像素（物理像素），它是虚拟化的。比如说css像素，我们常说的10px其实指的就是它。需要注意的是，物理像素开发者是无法获取的，它是自然存在的一种东西，该是多少就是多少。<br><strong>设备像素比</strong>：缩写简称dpr，也就是我们经常在谷歌控制台移动端调试顶端会看到的一个值。设备像素比 = 设备像素 / css像素（垂直方向或水平方向）。可以通过JS来获取： window.devicePixelRatio<br>Retina屏幕就是指设备像素比等于2的屏幕。</p>
-<h2 id="视口"><a href="#视口" class="headerlink" title="视口"></a>视口</h2><p><strong>布局视口layout viewport</strong><br>指DOM宽度<br>在移动端，默认的情况下，布局视口的宽度是要远远大于浏览器的宽度的。<br>浏览器厂商为了让用户在小屏幕下网页也能够显示地很好，所以把布局视口宽度设置地很大，一般在 768px~1024px之间，最常见的宽度是 980px。这个宽度可以通过 document.documentElement.clientWidth得到。<br><strong>视觉视口visual viewport</strong><br>指屏幕宽度<br>对于视觉视口来说，这个东西是呈现给用户的，它是用户看到网页区域内CSS像素的数量。由于用户可以自行进行缩放控制，所以这个视口并不是开发者需要重点关注的。<br>这个宽度可以通过 window.innerWidth得到。<br><strong>理想视口ideal viewport</strong><br>指使布局视口就是视觉视口<br>以上，布局视口很明显对用户十分的不友好，完全忽略了手机本来的尺寸。所以苹果引入了理想视口的概念，它是对设备来说最理想的布局视口尺寸。理想视口中的网页用户最理想的宽度，用户进入页面的时候不需要缩放。<br>那么很明显，所谓的理想宽度就是浏览器（屏幕）的宽度了。<br><code>&lt;meta name =&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code><br>在IE浏览器中，由于横屏竖屏的切换会对其造成影响，为了解决这个兼容性的问题<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-idth,initial-scale=1&quot;&gt;</code><br>设备宽度(visual viewport)与DOM宽度(layout viewport), scale的关系为：<br>（visual viewport）= （layout viewport）* scale<br>我们可以设置不可缩放，最大和最小缩放比例为1.0<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</code></p>
-<h2 id="最常见的解决方法主要有三种："><a href="#最常见的解决方法主要有三种：" class="headerlink" title="最常见的解决方法主要有三种："></a>最常见的解决方法主要有三种：</h2><ol>
-<li>meta viewport 定宽 width=640 ，然后网页按 640宽度来切</li>
-<li>meta viewport 不固定宽度，通过css3多媒体查询来针对不同分辨率写</li>
-<li>meta viewport 不固定宽度，基于rem做单位， 通过css3多媒体查询技术 来改变 html基值</li>
-</ol>
-<h2 id="使用Flexible实现手淘H5页面的终端适配"><a href="#使用Flexible实现手淘H5页面的终端适配" class="headerlink" title="使用Flexible实现手淘H5页面的终端适配"></a>使用Flexible实现手淘H5页面的终端适配</h2><p><a href="https://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html" target="_blank" rel="noopener">参考手淘适配原理</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>在前端开发中，缓存有利于加快网页的加载速度，同时缓存能够被反复利用，所以可以减少流量和带宽的开销。</p>
+</blockquote>
+<p>缓存的分类有很多种，CDN缓存、数据库缓存、代理服务器缓存和浏览器缓存。下面主要总结一下Web开发中的浏览器缓存。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="应用层缓存"><a href="#应用层缓存" class="headerlink" title="应用层缓存"></a>应用层缓存</h3><p>HTML5中的localStorage和sessionStorage就属于应用层缓存。</p>
+<ul>
+<li>localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。</li>
+<li>sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</li>
+</ul>
+<p>不管是 localStorage，还是 sessionStorage，都是以键值对的形式存在客户端，可使用的API都相同，常用的有如下几个（以localStorage为例）：</p>
+<ul>
+<li>保存数据：localStorage.setItem(key,value);</li>
+<li>读取数据：localStorage.getItem(key);</li>
+<li>删除单个数据：localStorage.removeItem(key);</li>
+<li>删除所有数据：localStorage.clear();</li>
+<li>得到某个索引的key：localStorage.key(index);</li>
+</ul>
+<h3 id="协议层缓存"><a href="#协议层缓存" class="headerlink" title="协议层缓存"></a>协议层缓存</h3><p>协议层缓存主要指的是http的缓存，分为强制缓存和对比缓存。</p>
+<h4 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h4><h5 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h5><p>在HTTP/1.0中常使用的是Expires。这个字段指的是缓存的到期时间，即有效时间+当时服务器的时间，然后将这个时间设置在header中返回给服务器。因此，该时间是一个绝对时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expires: Thu, 10 Nov 2017 08:45:11 GMT</span><br></pre></td></tr></table></figure>
+<p>由于是绝对时间，用户可能会将客户端本地的时间进行修改，而导致浏览器判断缓存失效，重新请求该资源，同时，还导致客户端与服务端的时间不一致，致使缓存失效。</p>
+<h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>由于Expires的缺点，所以在HTTP/1.1中添加了Cache-Control，该字段表示资源缓存的最大有效时间，在该时间内，客户端不需要向服务器发送请求，该时间是相对时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: max-age=2592000</span><br></pre></td></tr></table></figure>
+<p>下面列举一下Cache-Control的字段可以带的值：</p>
+<ul>
+<li>max-age：即最大有效时间，在上面的例子中我们可以看到</li>
+<li>no-cache：表示没有缓存，即告诉浏览器该资源并没有设置缓存</li>
+<li>s-maxage：同max-age，但是仅用于共享缓存，如CDN缓存</li>
+<li>public：多用户共享缓存，默认设置</li>
+<li>private：不能够多用户共享，HTTP认证之后，字段会自动转换成private。<br>由于是相对时间所以即使客户端本地时间被修改，相对时间也不会随之改变。<h4 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h4>强制缓存是根据时间来判断是否向服务器发出请求，但是服务器端的文件发生修改，而客户端还是读的本地缓存怎么办？<br>这里就要用到对比缓存，对比缓存的过程是，先从缓存中获取对应的数据标识，然后向服务器发送请求，确认数据是否更新，如果更新，则返回新数据和新缓存；反之，则返回304状态码，告知客户端缓存未更新，可继续使用。<h5 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h5>Last-Modified：服务器告知客户端，资源最后一次被修改的时间，例如</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Last-Modified: Thu, 10 Nov 2015 08:45:11 GMT</span><br></pre></td></tr></table></figure>
+<p>这个字段可以配合Cache-Control一起使用。<br>这个方法有一定的缺点：</p>
+<ul>
+<li>如果资源更新的速度是秒以下单位，那么该缓存是不能被使用的，因为它的时间单位最低是秒。</li>
+<li>如果文件是通过服务器动态生成的，那么该方法的更新时间永远是生成的时间，尽管文件可能没有变化，所以起不到缓存的作用。<h5 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h5>尽管在大多数情况下我们使用Last-Modified，但当我们遇到上面的场景可以使用Etag.<br>Etag存储的是文件的特殊标识(一般都是hash生成的)，服务器存储着文件的Etag字段，可以在与每次客户端传送If-no-match的字段进行比较，如果相等，则表示未修改，响应304；反之，则表示已修改，响应200状态码，返回数据。<h4 id="如何清除前端缓存"><a href="#如何清除前端缓存" class="headerlink" title="如何清除前端缓存"></a>如何清除前端缓存</h4>meta方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;META HTTP-EQUIV=&quot;pragma&quot; CONTENT=&quot;no-cache&quot;&gt; </span><br><span class="line">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot; CONTENT=&quot;no-cache, must-revalidate&quot;&gt; </span><br><span class="line">&lt;META HTTP-EQUIV=&quot;expires&quot; CONTENT=&quot;0&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>清理form表单的临时缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onLoad=&quot;javascript:document.yourFormName.reset()&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在请求URL后面加上随机参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;?timestamp=&quot; + new Date().getTime();</span><br></pre></td></tr></table></figure></p>
+<p>用php后端处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在 URL 参数后加上 在服务端加 header(&quot;Cache-Control: no-cache, must-revalidate&quot;);</span><br></pre></td></tr></table></figure>
 
       
 
@@ -226,6 +261,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -276,7 +322,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/04/24/移动端屏幕适配问题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/07/21/前端缓存/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +336,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/29/正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          正则表达式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/23/图片懒加载/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图片懒加载</div>
+    <a href="/2018/06/03/Sass/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sass</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -340,7 +377,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "Tue Apr 24 2018 22:10:12 GMT+0800",
+  id: "Sat Jul 21 2018 11:25:50 GMT+0800",
   owner: 'daiyuqing',
   repo: 'daiyuqing.github.io',
   oauth: {
