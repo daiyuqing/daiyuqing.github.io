@@ -156,6 +156,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css的一些坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/css的一些坑/">css的一些坑</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/css的一些坑/" class="archive-article-date">
+  	<time datetime="2018-08-01T15:30:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-inline-inline-block引起的空白间距问题"><a href="#1-inline-inline-block引起的空白间距问题" class="headerlink" title="1.inline/inline-block引起的空白间距问题"></a>1.inline/inline-block引起的空白间距问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		*&#123;</span><br><span class="line">			margin: 0;</span><br><span class="line">			padding: 0;</span><br><span class="line">		&#125;</span><br><span class="line">        li&#123;</span><br><span class="line">            display: inline-block;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            font-size: 20px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li style=&quot;background: red&quot;&gt;1&lt;/li&gt;</span><br><span class="line">        &lt;li style=&quot;background: yellow&quot;&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li style=&quot;background: blue&quot;&gt;3&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码的效果<br><img src="http://ae01.alicdn.com/kf/HTB1lNk.Ib9YBuNjy0Fgq6AxcXXaP.jpg" alt="image"></p>
+<p>元素之间有间距，这是由于inline-block元素之间的换行和空格会被当作一个空格处理，这个间距就是一个空格占的位置。</p>
+<h5 id="解决方法一：去掉元素中间的空格和换行"><a href="#解决方法一：去掉元素中间的空格和换行" class="headerlink" title="解决方法一：去掉元素中间的空格和换行"></a>解决方法一：去掉元素中间的空格和换行</h5><p>当我们把li标签写在一行且中间无空格，就不会出现间距。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li style=&quot;background: red&quot;&gt;1&lt;/li&gt;&lt;li style=&quot;background: yellow&quot;&gt;2&lt;/li&gt;&lt;li style=&quot;background: blue&quot;&gt;3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ae01.alicdn.com/kf/HTB1_30emr3nBKNjSZFMq6yUSFXa5.jpg" alt="image"></p>
+<h5 id="解决方法二：把父元素的字体大小设为0"><a href="#解决方法二：把父元素的字体大小设为0" class="headerlink" title="解决方法二：把父元素的字体大小设为0"></a>解决方法二：把父元素的字体大小设为0</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ul&#123;</span><br><span class="line">    font-size:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ae01.alicdn.com/kf/HTB1_30emr3nBKNjSZFMq6yUSFXa5.jpg" alt="image"></p>
+<h3 id="2-子元素设置浮动后，父元素高度塌陷问题"><a href="#2-子元素设置浮动后，父元素高度塌陷问题" class="headerlink" title="2.子元素设置浮动后，父元素高度塌陷问题"></a>2.子元素设置浮动后，父元素高度塌陷问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		*&#123;</span><br><span class="line">			margin: 0;</span><br><span class="line">			padding: 0;</span><br><span class="line">		&#125;</span><br><span class="line">        div#wrap&#123;</span><br><span class="line">            margin:100px;</span><br><span class="line">            width: 300px;</span><br><span class="line">            border:1px solid red;</span><br><span class="line">        &#125;</span><br><span class="line">        p&#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;wrap&quot;&gt;</span><br><span class="line">        &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>p元素未设置float<br><img src="http://ae01.alicdn.com/kf/HTB1u1oLmlsmBKNjSZFFq6AT9VXat.jpg" alt="image"></p>
+<p>p元素设置float<br><img src="http://ae01.alicdn.com/kf/HTB1tZNomDCWBKNjSZFtq6yC3FXas.jpg" alt="image"><br>当给p元素加上<code>float:left;</code>后，div元素塌陷。<br>原因是子元素设置浮动后，脱离了标准文档流，父元素没有被撑开。</p>
+<h5 id="解决办法一：给父元素添加overflow-hidden-属性"><a href="#解决办法一：给父元素添加overflow-hidden-属性" class="headerlink" title="解决办法一：给父元素添加overflow:hidden;属性"></a>解决办法一：给父元素添加<code>overflow:hidden;</code>属性</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">   overflow:hidden; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="解决办法二：给父元素添加after伪元素"><a href="#解决办法二：给父元素添加after伪元素" class="headerlink" title="解决办法二：给父元素添加after伪元素"></a>解决办法二：给父元素添加after伪元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div:after&#123;</span><br><span class="line">    display:block;</span><br><span class="line">    content:&quot;&quot;;</span><br><span class="line">    height:0;</span><br><span class="line">    clear:both;</span><br><span class="line">    overflow:hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="解决办法三：在父元素结束前添加一个宽高为0，clear-both-的空div"><a href="#解决办法三：在父元素结束前添加一个宽高为0，clear-both-的空div" class="headerlink" title="解决办法三：在父元素结束前添加一个宽高为0，clear:both 的空div"></a>解决办法三：在父元素结束前添加一个宽高为0，clear:both 的空div</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&apos;wrap&apos;&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;div style=&apos;width: 0;height: 0;clear: both;&apos;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-垂直方向长度百分比问题"><a href="#3-垂直方向长度百分比问题" class="headerlink" title="3.垂直方向长度百分比问题"></a>3.垂直方向长度百分比问题</h3><p>子元素垂直方向长度若采用百分比，则height是以父元的height为基准，而margin和padding是以父元素的宽度为基准。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		*&#123;</span><br><span class="line">			margin: 0;</span><br><span class="line">			padding: 0;</span><br><span class="line">		&#125;</span><br><span class="line">        div&#123;</span><br><span class="line">            margin:100px;</span><br><span class="line">            height: 300px;</span><br><span class="line">            width: 600px;</span><br><span class="line">            border:1px solid black;</span><br><span class="line">        &#125;</span><br><span class="line">        p&#123;</span><br><span class="line">            height: 50%;</span><br><span class="line">            margin-top: 50%;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码中p元素的height实际上等于150px,而margin-top是300px.</p>
+<h3 id="CSS-外边距-margin-重叠"><a href="#CSS-外边距-margin-重叠" class="headerlink" title="CSS 外边距(margin)重叠"></a>CSS 外边距(margin)重叠</h3><p>两个或多个块级盒子的垂直相邻边界会重合。结果的边界宽度是相邻边界宽度中最大的值。<br>水平边距永远不会重合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		*&#123;</span><br><span class="line">			margin: 0;</span><br><span class="line">			padding: 0;</span><br><span class="line">		&#125;</span><br><span class="line">        div&#123;</span><br><span class="line">            height: 200px;</span><br><span class="line">            width: 200px;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div style=&quot;margin-bottom: 100px&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;margin-top: 100px;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>上面两个div的间距实际上是100px.</p>
+<h3 id="子元素设置margin-top会作用在父元素上"><a href="#子元素设置margin-top会作用在父元素上" class="headerlink" title="子元素设置margin-top会作用在父元素上"></a>子元素设置margin-top会作用在父元素上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		*&#123;</span><br><span class="line">			margin: 0;</span><br><span class="line">			padding: 0;</span><br><span class="line">		&#125;</span><br><span class="line">        div&#123;</span><br><span class="line">            height: 200px;</span><br><span class="line">            width: 200px;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line">        p&#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: yellow;</span><br><span class="line">            margin-top: 50px;</span><br><span class="line">        &#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>上面的代码效果是这样的<br><img src="http://ae01.alicdn.com/kf/HTB1.EP2IbGYBuNjy0Foq6AiBFXaW.jpg" alt="image"></p>
+<p>大家可以看到，这里子元素的margin-top顶开了父元素与父元素相邻元素的间距。</p>
+<h5 id="解决办法一：为父元素设置border。"><a href="#解决办法一：为父元素设置border。" class="headerlink" title="解决办法一：为父元素设置border。"></a>解决办法一：为父元素设置border。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    width: 200px;</span><br><span class="line">    background: red;</span><br><span class="line">    border: 1px solid #000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="解决办法二：为父元素设置padding。"><a href="#解决办法二：为父元素设置padding。" class="headerlink" title="解决办法二：为父元素设置padding。"></a>解决办法二：为父元素设置padding。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    width: 200px;</span><br><span class="line">    background: red;</span><br><span class="line">    padding: 1px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="解决办法三：为父元素设置-overflow-hidden-。"><a href="#解决办法三：为父元素设置-overflow-hidden-。" class="headerlink" title="解决办法三：为父元素设置 overflow: hidden ;。"></a>解决办法三：为父元素设置 <code>overflow: hidden ;</code>。</h5><p><code>`</code><br>div{<br>    height: 200px;<br>    width: 200px;<br>    background: red;<br>    overflow: hidden ;<br>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/01/css的一些坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-前端缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -955,87 +1042,6 @@
 
 
   
-    <article id="post-Rax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/10/Rax/">Rax - 跨容器的渲染引擎</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/10/Rax/" class="archive-article-date">
-  	<time datetime="2018-03-10T10:04:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="什么是Rax"><a href="#什么是Rax" class="headerlink" title="什么是Rax?"></a>什么是Rax?</h2><p>Rax是一个通用的跨容器的渲染引擎，可以说Rax是基于React的，Rax和React的 API 是完全兼容的</p>
-<h2 id="Rax的特点"><a href="#Rax的特点" class="headerlink" title="Rax的特点"></a>Rax的特点</h2><h3 id="1-跨容器"><a href="#1-跨容器" class="headerlink" title="1. 跨容器"></a>1. 跨容器</h3><p>能够同时在浏览器、Weex、Node.js 中运行，Rax 旨在</p>
-<blockquote>
-<p>Write once, run everywhere.</p>
-</blockquote>
-<h3 id="2-高性能"><a href="#2-高性能" class="headerlink" title="2. 高性能"></a>2. 高性能</h3><p>超快的虚拟 DOM,rax是react性能的两倍</p>
-<h3 id="3-超轻量"><a href="#3-超轻量" class="headerlink" title="3. 超轻量"></a>3. 超轻量</h3><p>8.0 kb min+gzip 运行大小<br>rax项目地址<a href="https://github.com/daiyuqing/rax-music.git" target="_blank" rel="noopener">https://github.com/daiyuqing/rax-music.git</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Rax react-native react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/10/Rax/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1133,7 +1139,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1141,15 +1147,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Rax react-native react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
               </li>
             
             <div class="clearfix"></div>
