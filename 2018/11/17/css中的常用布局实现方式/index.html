@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daiyuqing.github.io/daiyuqing.github.io">
-  <title>Archives: 2018/4 | Dale&#39;s blog</title>
+  <title>css中的常用布局实现方式 | Dale&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Dale&#39;s blog">
-<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/archives/2018/04/index.html">
+  <meta name="description" content="左边固定，右边自适应HTML代码1234&amp;lt;div class=&amp;quot;wrap&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;div1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;    &amp;lt;div class=&amp;quot;div2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; 方法一（相对定位）123456789101112131415161">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css中的常用布局实现方式">
+<meta property="og:url" content="https://daiyuqing.github.io/daiyuqing.github.io/2018/11/17/css中的常用布局实现方式/index.html">
 <meta property="og:site_name" content="Dale&#39;s blog">
+<meta property="og:description" content="左边固定，右边自适应HTML代码1234&amp;lt;div class=&amp;quot;wrap&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;div1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;    &amp;lt;div class=&amp;quot;div2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; 方法一（相对定位）123456789101112131415161">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-17T06:46:26.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dale&#39;s blog">
+<meta name="twitter:title" content="css中的常用布局实现方式">
+<meta name="twitter:description" content="左边固定，右边自适应HTML代码1234&amp;lt;div class=&amp;quot;wrap&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;div1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;    &amp;lt;div class=&amp;quot;div2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; 方法一（相对定位）123456789101112131415161">
   
     <link rel="alternative" href="/atom.xml" title="Dale&#39;s blog" type="application/atom+xml">
   
@@ -154,130 +159,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css中的常用布局实现方式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css中的常用布局实现方式
+    </h1>
+  
+
+        
+        <a href="/2018/11/17/css中的常用布局实现方式/" class="archive-article-date">
+  	<time datetime="2018-11-17T06:46:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-17</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="左边固定，右边自适应"><a href="#左边固定，右边自适应" class="headerlink" title="左边固定，右边自适应"></a>左边固定，右边自适应</h2><p>HTML代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法一（相对定位）"><a href="#方法一（相对定位）" class="headerlink" title="方法一（相对定位）"></a>方法一（相对定位）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    height: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.wrap&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.div1&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0;</span><br><span class="line">    top: 0;</span><br><span class="line">    width: 100px;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">    margin-left: 100px;</span><br><span class="line">    background: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二（浮动）"><a href="#方法二（浮动）" class="headerlink" title="方法二（浮动）"></a>方法二（浮动）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    height: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.div1&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 100px;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">    margin-left: 100px;</span><br><span class="line">    background: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法三（flex弹性盒子）"><a href="#方法三（flex弹性盒子）" class="headerlink" title="方法三（flex弹性盒子）"></a>方法三（flex弹性盒子）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    height: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.wrap&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.div1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">    background: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="两边固定，中间自适应（圣杯布局）"><a href="#两边固定，中间自适应（圣杯布局）" class="headerlink" title="两边固定，中间自适应（圣杯布局）"></a>两边固定，中间自适应（圣杯布局）</h2><p>HTML代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div3&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法一（相对定位）-1"><a href="#方法一（相对定位）-1" class="headerlink" title="方法一（相对定位）"></a>方法一（相对定位）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    height: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.wrap&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.div1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0;</span><br><span class="line">    top: 0;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">    margin: 0 100px;</span><br><span class="line">    background: green;</span><br><span class="line">&#125;</span><br><span class="line">.div3&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 0;</span><br><span class="line">    top: 0;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二（浮动）-1"><a href="#方法二（浮动）-1" class="headerlink" title="方法二（浮动）"></a>方法二（浮动）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.div1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    float: left;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.div3&#123;</span><br><span class="line">    margin: 0 100px;</span><br><span class="line">    background: green;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    float: right;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法三（flex弹性盒子）-1"><a href="#方法三（flex弹性盒子）-1" class="headerlink" title="方法三（flex弹性盒子）"></a>方法三（flex弹性盒子）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.wrap&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.div1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">    background: green;</span><br><span class="line">&#125;</span><br><span class="line">.div3&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/29/正则表达式/" class="archive-article-date">
-  	<time datetime="2018-04-29T06:25:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/29/正则表达式/">正则表达式</a>
-    </h1>
-  
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://daiyuqing.github.io/daiyuqing.github.io/2018/11/17/css中的常用布局实现方式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/24/移动端屏幕适配问题/" class="archive-article-date">
-  	<time datetime="2018-04-24T14:10:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/06/weex/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">weex</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/24/移动端屏幕适配问题/">移动端屏幕适配问题</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/23/图片懒加载/" class="archive-article-date">
-  	<time datetime="2018-04-23T15:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/23/图片懒加载/">图片懒加载</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/http/" class="archive-article-date">
-  	<time datetime="2018-04-15T11:00:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/http/">HTTP协议</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Sat Nov 17 2018 14:46:07 GMT+0800",
+  owner: 'daiyuqing',
+  repo: 'daiyuqing.github.io',
+  oauth: {
+    client_id: '97db30fe3469fddc887b',
+    client_secret: 'c488d3f6b2577bdd134a8667a05050e1819d6b40',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -300,8 +375,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
